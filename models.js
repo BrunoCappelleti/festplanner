@@ -34,27 +34,16 @@ const Task = sequelize.define('task', {
   task_title: Sequelize.STRING,
   task_date: Sequelize.INTEGER,
   task_notes: Sequelize.TEXT,
-  isToDo:{
-    type: Sequelize.BOOLEAN,
-    defaultValue: true,
-  },
-  isDone:{
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  isInProgress:{
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
+  task_status:{
+    type: Sequelize.STRING,
+    defaultValue:'To do'
   }
 });
 
 Festival.hasMany(User);
 User.belongsTo(Festival);
-Task.belongsTo(Festival);
-Festival.hasMany(Task);
-//change so that the tasks are a join table between the user and
-//the festivals
-
+Task.belongsTo(User);
+User.hasMany(Task);
 
 module.exports = {
   sequelize,
