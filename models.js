@@ -1,0 +1,64 @@
+const Sequelize = require('sequelize');
+
+const sequelize = new Sequelize({
+  database: 'festplanner_db',
+  dialect: 'postgres',
+  define: {
+    underscored: true,
+    }
+});
+
+const Festival = sequelize.define('festival',{
+  festival_name: Sequelize.STRING,
+  festival_date: Sequelize.INTEGER,
+  festival_description: Sequelize.TEXT,
+  festival_img: Sequelize.STRING
+});
+
+//User table for post MVP
+//The plan is to change the img type so the user can
+//choose whichever pic they want
+//instead of having to copy an img url online lol
+const User = sequelize.define('user', {
+  user_name: Sequelize.STRING,
+  user_email: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    // unique: true,
+  },
+  // user_img: Sequelize.STRING,
+  password_digest: Sequelize.STRING
+})
+
+const Task = sequelize.define('task', {
+  task_title: Sequelize.STRING,
+  task_date: Sequelize.INTEGER,
+  task_notes: Sequelize.TEXT,
+  isToDo:{
+    type: Sequelize.BOOLEAN,
+    defaultValue: true,
+  },
+  isDone:{
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  },
+  isInProgress:{
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  }
+});
+
+Festival.hasMany(User);
+User.belongsTo(Festival);
+Task.belongsTo(Festival);
+Festival.hasMany(Task);
+//change so that the tasks are a join table between the user and
+//the festivals
+
+
+module.exports = {
+  sequelize,
+  User,
+  Festival,
+  Task
+}
