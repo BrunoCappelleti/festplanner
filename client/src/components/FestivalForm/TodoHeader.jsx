@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header() {
+function TodoHeader() {
   return(
     <header style={headerstyle}>
       <h1>Todo List</h1>
@@ -16,4 +16,4 @@ const headerstyle = {
   padding: '10px'
 }
 
-export default Header
+export default TodoHeader
