@@ -13,7 +13,7 @@ const delTask = async (id) => {
 }
 
 const postTask = async (title) => {
-  const resp = await axios.post('https://jsonplaceholder.typicode.com/todos', {
+  const resp = await axios.post(`${BASE_URL}`, {
     title,
     completed: false
   })
