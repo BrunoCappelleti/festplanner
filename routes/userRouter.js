@@ -17,19 +17,19 @@ userRouter.get('/', async (req, res) => {
   }
 });
 
-// userRouter.post('/', async (req, res) => {
-//   try{
-//   const { user_name, user_email, password_digest } = req.body;
-//   const user = await User.create({
-//     user_name,
-//     user_email,
-//     password_digest
-//   });
-//     const userData = {
-//       ...user.dataValues,
-//     }
-//   }catch(e){
-//     console.error(e.message);
-//
-// }});
+userRouter.post('/', async (req, res) => {
+  try{
+  const { user_name, user_email, password_digest } = req.body;
+  const user = await User.create({
+    user_name,
+    user_email,
+    password_digest
+  });
+    const userData = {
+      ...user.dataValues,
+    }
+  }catch(e){
+    console.error(e.message);
+
+}});
 module.exports = { userRouter }
