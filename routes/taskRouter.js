@@ -17,14 +17,16 @@ taskRouter.get('/', async (req, res) => {
 });
 
 // Route for posting tasks :WORKS:
-// taskRouter.post('/', async (req, res) => {
-//   const { task_title, task_date, task_notes } = req.body;
-//   const task = await Task.create({
-//     task_title,
-//     task_date,
-//     task_notes
-//   });
-//   const taskData = {
-//     ...task.dataValues,
-//   }
-// });
+taskRouter.post('/', async (req, res) => {
+  const { task_title, task_date, task_notes } = req.body;
+  const task = await Task.create({
+    task_title,
+    task_date,
+    task_notes
+  });
+  const taskData = {
+    ...task.dataValues,
+  }
+});
+
+module.exports = { taskRouter }

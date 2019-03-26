@@ -21,4 +21,4 @@ festivalRouter.get('/', async (req, res) => {
 
 
 
-module.exports = festivalRouter;
+module.exports = {festivalRouter};

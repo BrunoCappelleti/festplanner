@@ -3,9 +3,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const PORT = process.env.PORT || 5000;
-const festivalRouter = require('./routes/festivalRouter')
-const taskRouter = require('./routes/taskRouter')
-const userRouter = require('./routes/userRouter')
+const {festivalRouter} = require('./routes/festivalRouter')
+const {taskRouter} = require('./routes/taskRouter')
+const {userRouter} = require('./routes/userRouter')
 
 const app = express();
 app.use(logger('dev'));
