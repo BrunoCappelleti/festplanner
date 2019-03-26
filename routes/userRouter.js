@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const {  User } = require('../models');
-
+const { hash, encode, compare, restrict } = require('../auth')
 const userRouter = Router();
 
 // userRouter.get('/', async (req, res) => {
@@ -19,7 +19,8 @@ userRouter.get('/', async (req, res) => {
 
 userRouter.post('/', async (req, res) => {
   try{
-  const { user_name, user_email, password_digest } = req.body;
+  const { user_name, user_email, password } = req.body;
+  const password_digest = await hash(password);
   const user = await User.create({
     user_name,
     user_email,

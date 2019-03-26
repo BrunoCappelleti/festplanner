@@ -29,4 +29,19 @@ taskRouter.post('/', async (req, res) => {
   }
 });
 
+taskRouter.delete('/:id', restrict, async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Task.destroy({
+      where: {
+        id
+      }
+    });
+    res.json(`Deleted task id ${id}`);
+  } catch (e) {
+    console.log(e);
+    res.status(404).send('Task not found');
+  }
+});
+
 module.exports = { taskRouter }
