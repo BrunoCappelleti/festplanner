@@ -23,11 +23,7 @@ const Festival = sequelize.define('festival',{
 //instead of having to copy an img url online lol
 const User = sequelize.define('user', {
   user_name: Sequelize.STRING,
-  user_email: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    // unique: true,
-  },
+  user_email: Sequelize.STRING,
   // user_img: Sequelize.STRING,
   password_digest: Sequelize.STRING
 })
@@ -36,27 +32,16 @@ const Task = sequelize.define('task', {
   task_title: Sequelize.STRING,
   task_date: Sequelize.INTEGER,
   task_notes: Sequelize.TEXT,
-  isToDo:{
-    type: Sequelize.BOOLEAN,
-    defaultValue: true,
-  },
-  isDone:{
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
-  isInProgress:{
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
+  task_status:{
+    type: Sequelize.STRING,
+    defaultValue:'To do'
   }
 });
 
 Festival.hasMany(User);
 User.belongsTo(Festival);
-Task.belongsTo(Festival);
-Festival.hasMany(Task);
-//change so that the tasks are a join table between the user and
-//the festivals
-
+Task.belongsTo(User);
+User.hasMany(Task);
 
 module.exports = {
   sequelize,

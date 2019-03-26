@@ -35,14 +35,14 @@ async function seed() {
     task_notes: 'Must buy tickets by tomorrow',
     task_date: 01022019
   });
-  await buyTicket.setFestival(lollapalooza);
+  await buyTicket.setUser(bruno);
 
   const bookHotel = await Task.create({
     task_title: 'Book hotel',
     task_notes: 'Must book hotel before festival date',
     task_date: 01023019
   })
-  await bookHotel.setFestival(lollapalooza);
+  await bookHotel.setUser(bruno);
 
   process.exit();
 };
