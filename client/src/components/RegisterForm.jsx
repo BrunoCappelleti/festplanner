@@ -52,7 +52,6 @@ const RegisterForm = (props) => {
         </div>
 
         <button
-        className='button-reg'
         onClick={props.handleSubmit}
         type="submit">
         Sign Up
