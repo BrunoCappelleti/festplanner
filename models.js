@@ -35,7 +35,7 @@ const Task = sequelize.define('task', {
   task_notes: Sequelize.TEXT,
   task_status:{
     type: Sequelize.STRING,
-    defaultValue:'To do'
+    defaultValue:'To-do'
   }
 });
 
