@@ -14,7 +14,8 @@ const Festival = sequelize.define('festival',{
   festival_name: Sequelize.STRING,
   festival_date: Sequelize.INTEGER,
   festival_description: Sequelize.TEXT,
-  festival_img: Sequelize.STRING
+  festival_img: Sequelize.STRING,
+  festival_map: Sequelize.TEXT
 });
 
 //User table for post MVP
@@ -26,7 +27,12 @@ const User = sequelize.define('user', {
   user_last_name: Sequelize.STRING,
   user_email: Sequelize.STRING,
   // user_img: Sequelize.STRING,
-  password_digest: Sequelize.STRING
+  password_digest: Sequelize.STRING,
+  festivalId:{
+    type: Sequelize.INTEGER,
+    defaultValue: 1
+
+  }
 })
 
 const Task = sequelize.define('task', {
