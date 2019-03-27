@@ -109,3 +109,45 @@
   }
 }
 /* ********************************* */
+/* REGISTER FORM */
+.RegisterForm{
+  text-align: center;
+  height: 100vh;
+  padding-top: 10em;
+  padding-left: 3em;
+  box-shadow: -4px 4px 8px 0 rgba(101, 101, 101, 0.5);
+  background-color: #f0f0f0;
+}
+
+.create-new-account{
+  font-family: Helvetica;
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.78;
+  letter-spacing: normal;
+  color: #4a4a4a;
+}
+
+.register-input{
+   font-size: 20px;
+   padding: 5px;
+   padding-left: 15px;
+   margin: 12px;
+   width: 328px;
+   height: 30px;
+   border: solid 1px #6f6f6f;
+   background-color: rgba(240,240,240,.2);
+}
+
+.register-button{
+  width: 328px;
+  height: 40px;
+  background-color: #ff8f07;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: 300;
+  color: #ffffff;
+  margin: 2em;
+}
