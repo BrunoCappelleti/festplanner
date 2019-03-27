@@ -110,7 +110,7 @@ onClick(){
         </div>
       )} />
 
-      <Route exact path='/festival' render={FestivalPage} />
+      <Route exact path='/festival' component={FestivalPage} />
 
       </div>
     );
