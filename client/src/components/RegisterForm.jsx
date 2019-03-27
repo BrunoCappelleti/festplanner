@@ -2,14 +2,15 @@ import React from 'react';
 
 const RegisterForm = (props) => {
   return(
-    <div>
-      <h1>Create new account</h1>
+    <div className="RegisterForm">
+      <h1 className="create-new-account">Create new account</h1>
 
        <form onSubmit={props.onSubmit}>
 
         <div>
-        <label>First Name</label>
         <input
+        className="register-input"
+        placeholder="Name"
         autoComplete="off"
         type="text"
         onChange={props.handleChange}
@@ -19,8 +20,9 @@ const RegisterForm = (props) => {
         </div>
 
         <div>
-        <label>Last Name</label>
         <input
+        className="register-input"
+        placeholder="Last Name"
         autoComplete="off"
         type="text"
         onChange={props.handleChange}
@@ -30,8 +32,9 @@ const RegisterForm = (props) => {
         </div>
 
         <div>
-        <label>Email</label>
         <input
+        className="register-input"
+        placeholder="Email"
         autoComplete="off"
         type="text"
         onChange={props.handleChange}
@@ -41,8 +44,9 @@ const RegisterForm = (props) => {
         </div>
 
         <div>
-        <label>Password</label>
         <input
+        className="register-input"
+        placeholder="Password"
         autoComplete="off"
         type="password"
         onChange={props.handleChange}
@@ -52,6 +56,7 @@ const RegisterForm = (props) => {
         </div>
 
         <button
+        className="register-button"
         onClick={props.handleSubmit}
         type="submit">
         Sign Up
