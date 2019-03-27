@@ -12,7 +12,9 @@ const sequelize = new Sequelize({
 
 const Festival = sequelize.define('festival',{
   festival_name: Sequelize.STRING,
-  festival_date: Sequelize.INTEGER,
+  festival_date: Sequelize.STRING,
+  festival_simpleDate: Sequelize.STRING,
+  festival_location: Sequelize.STRING,
   festival_description: Sequelize.TEXT,
   festival_img: Sequelize.STRING,
   festival_map: Sequelize.TEXT
