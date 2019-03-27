@@ -3,8 +3,8 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize({
   database: 'festplanner_db',
   dialect: 'postgres',
-  username: `sequelize`,
-  password: `password`,
+  // username: `sequelize`,
+  // password: `password`,
   define: {
     underscored: true,
     }
@@ -12,9 +12,12 @@ const sequelize = new Sequelize({
 
 const Festival = sequelize.define('festival',{
   festival_name: Sequelize.STRING,
-  festival_date: Sequelize.INTEGER,
+  festival_date: Sequelize.STRING,
+  festival_simpleDate: Sequelize.STRING,
+  festival_location: Sequelize.STRING,
   festival_description: Sequelize.TEXT,
-  festival_img: Sequelize.STRING
+  festival_img: Sequelize.STRING,
+  festival_map: Sequelize.TEXT
 });
 
 //User table for post MVP
@@ -22,10 +25,16 @@ const Festival = sequelize.define('festival',{
 //choose whichever pic they want
 //instead of having to copy an img url online lol
 const User = sequelize.define('user', {
-  user_name: Sequelize.STRING,
+  user_first_name: Sequelize.STRING,
+  user_last_name: Sequelize.STRING,
   user_email: Sequelize.STRING,
   // user_img: Sequelize.STRING,
-  password_digest: Sequelize.STRING
+  password_digest: Sequelize.STRING,
+  festivalId:{
+    type: Sequelize.INTEGER,
+    defaultValue: 1
+
+  }
 })
 
 const Task = sequelize.define('task', {
@@ -34,7 +43,7 @@ const Task = sequelize.define('task', {
   task_notes: Sequelize.TEXT,
   task_status:{
     type: Sequelize.STRING,
-    defaultValue:'To do'
+    defaultValue:'To-do'
   }
 });
 

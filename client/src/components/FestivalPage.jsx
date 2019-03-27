@@ -1,26 +1,44 @@
 import React, { Component } from 'react';
 import { Link ,Route } from 'react-router-dom';
 import ToDoList from './FestivalForm/ToDoList';
+import Counter from './Counter';
+import axios from 'axios';
+import { getFestival } from '../services/api-helper';
 
 class FestivalPage extends Component {
   constructor() {
     super();
     this.state = {
-      //need to pass user on to ToDoList
       user: '',
+      festival: '',
+      loading: false
     }
   }
 
   async componentDidMount(){
-    //need to recieve user form app and mount it to the state on load
+    try {
+      const resp = await getFestival()
+      console.log(resp);
+      this.setState({
+        festival: resp,
+        loading: true,
+      });
+    } catch(e) {
+      console.log(e);
+    }
   }
 
   render() {
+    const { festival } = this.state;
     return (
       <div className="App">
         <div className="cointainer">
-          <h1>Hello</h1>
-          <ToDoList />
+          <h1>{festival.festival_name}</h1>
+          <h3>{festival.festival_location} • {festival.festival_simpleDate}</h3>
+          {!this.state.loading && <div>Please hold...</div>}
+          {this.state.loading && <Counter
+            date={festival.festival_date}
+             />}
         </div>
       </div>
     );

@@ -55,4 +55,140 @@ overflow-y: scroll;
 .task-update:hover, .task-delete:hover {
   background: black;
   color: white;
+  
+/*  FOOTER */
+
+.Footer{
+  height: 115px;
+  background-color: #dadada;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+}
+
+.connect-with-us {
+  font-family: Helvetica;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--greyish-brown);
+  margin: 10px;
+}
+
+.socialMediaIcons{
+  display: flex;
+  justify-content: center;
+}
+
+.icons{
+  padding: 5px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+
+.copyright-FestPlan {
+  font-family: Helvetica;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 10px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--greyish-brown);
+}
+
+/* MEDIA QUERIES FOR FOOTER */
+@media only screen and (max-width: 600px) {
+  .Footer {
+    height: 95px;
+    padding-bottom: 5px;
+    padding-top: 12px;
+  }
+
+  .icons{
+    width: 30px;
+    height: 30px;
+  }
+
+  .connect-with-us {
+    font-size: 12px;
+    padding: 0;
+  }
+
+  .copyright-FestPlan{
+    font-size: 10px;
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .Footer {
+    height: 90px;
+    padding-bottom: 5px;
+    padding-top: 12px;
+  }
+
+  .icons{
+    width: 22px;
+    height: 22px;
+  }
+  .connect-with-us {
+    font-size: 10px;
+  }
+
+  .copyright-FestPlan{
+    font-size: 8px;
+  }
+}
+/* ********************************* */
+/* REGISTER FORM */
+.RegisterForm{
+  text-align: center;
+  height: 100vh;
+  padding-top: 10em;
+  padding-left: 3em;
+  box-shadow: -4px 4px 8px 0 rgba(101, 101, 101, 0.5);
+  background-color: #f0f0f0;
+}
+
+.create-new-account{
+  font-family: Helvetica;
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.78;
+  letter-spacing: normal;
+  color: #4a4a4a;
+}
+
+.register-input{
+   font-size: 20px;
+   padding: 5px;
+   padding-left: 15px;
+   margin: 12px;
+   width: 328px;
+   height: 30px;
+   border: solid 1px #6f6f6f;
+   background-color: rgba(240,240,240,.2);
+}
+
+.register-button{
+  width: 328px;
+  height: 40px;
+  background-color: #ff8f07;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: 300;
+  color: #ffffff;
+  margin: 2em;
 }
