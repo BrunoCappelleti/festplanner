@@ -6,6 +6,7 @@ import axios from 'axios';
 import FestivalPage from './components/FestivalPage';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
+import Footer from './components/FestivalForm/Footer';
 import { registerUser, loginUser } from './services/api-helper';
 
 class App extends Component {
@@ -109,6 +110,8 @@ onClick(){
         />
         </div>
       )} />
+
+      <Footer />
 
       <Route exact path='/festival' render={FestivalPage} />
 

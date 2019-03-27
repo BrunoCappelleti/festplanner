@@ -14,3 +14,98 @@
 .btnSub:hover{
   background: #666;
 }
+
+/*  FOOTER */
+
+.Footer{
+  height: 115px;
+  background-color: #dadada;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+}
+
+.connect-with-us {
+  font-family: Helvetica;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--greyish-brown);
+  margin: 10px;
+}
+
+.socialMediaIcons{
+  display: flex;
+  justify-content: center;
+}
+
+.icons{
+  padding: 5px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+
+.copyright-FestPlan {
+  font-family: Helvetica;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 10px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--greyish-brown);
+}
+
+/* MEDIA QUERIES FOR FOOTER */
+@media only screen and (max-width: 600px) {
+  .Footer {
+    height: 95px;
+    padding-bottom: 5px;
+    padding-top: 12px;
+  }
+
+  .icons{
+    width: 30px;
+    height: 30px;
+  }
+
+  .connect-with-us {
+    font-size: 12px;
+    padding: 0;
+  }
+
+  .copyright-FestPlan{
+    font-size: 10px;
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .Footer {
+    height: 90px;
+    padding-bottom: 5px;
+    padding-top: 12px;
+  }
+
+  .icons{
+    width: 22px;
+    height: 22px;
+  }
+  .connect-with-us {
+    font-size: 10px;
+  }
+
+  .copyright-FestPlan{
+    font-size: 8px;
+  }
+}
+/* ********************************* */
