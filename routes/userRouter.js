@@ -46,10 +46,11 @@ userRouter.post('/login', async (req, res) => {
 
 userRouter.post('/', async (req, res) => {
   try{
-  const { user_name, user_email, password } = req.body;
+  const { user_name, user_email, user_last_name, password } = req.body;
   const password_digest = await hash(password);
   const user = await User.create({
     user_name,
+    user_last_name,
     user_email,
     password_digest
   });

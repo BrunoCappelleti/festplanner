@@ -18,6 +18,7 @@ async function seed() {
 
   const bruno = await User.create({
     user_name: 'Bruno',
+    user_last_name: 'Cappelleti',
     user_email: 'bruno@gmail.com',
     password_digest: 'this is a password for now'
   });
@@ -25,6 +26,7 @@ async function seed() {
 
   const shirin = await User.create({
     user_name: 'shirin',
+    user_last_name: 'anlen',
     user_email: 'shirin@gmail.com',
     password_digest: 'this is another password for now'
   });
