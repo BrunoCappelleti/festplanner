@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://jsonplaceholder.typicode.com/todos'
+const BASE_URL = 'http://localhost:5000'
 
 
 const loginUser = async (data) => {
-  const { email, password } = data;
-  const resp = await axios.post(``, {
-    email,
+  const { user_email, password } = data;
+  const resp = await axios.post(`${BASE_URL}/users/login`, {
+    user_email,
     password
   });
   console.log(resp.data);
@@ -14,11 +14,11 @@ const loginUser = async (data) => {
 }
 
 const registerUser = async (data) => {
-  const { first_name, last_name, email, password } = data;
-  const resp = await axios.post(``, {
-    first_name,
-    last_name,
-    email,
+  const { user_first_name, user_last_name, user_email, password } = data;
+  const resp = await axios.post(`${BASE_URL}/users`, {
+    user_first_name,
+    user_last_name,
+    user_email,
     password
   });
   console.log(resp.data);
