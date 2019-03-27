@@ -51,4 +51,20 @@ taskRouter.delete('/:id', async (req, res) => {
   }
 });
 
+taskRouter.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const task = await Task.findByPk(id);
+    if (task !== null) {
+      console.log(req.body);
+      await task.update(req.body);
+      res.json(task)
+    }
+  } catch(e){
+      console.error(e.message);
+    next(e);
+  }
+})
+
 module.exports = { taskRouter }
