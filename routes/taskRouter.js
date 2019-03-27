@@ -27,6 +27,7 @@ taskRouter.post('/', async (req, res) => {
   const taskData = {
     ...task.dataValues,
   }
+  res.json(task.get())
 });
 
 taskRouter.get('/:id', async (req, res) => {
