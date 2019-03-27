@@ -29,7 +29,13 @@ taskRouter.post('/', async (req, res) => {
   }
 });
 
-taskRouter.delete('/:id', restrict, async (req, res) => {
+taskRouter.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  const task = await Task.findByPk(id);
+  res.json(task);
+})
+
+taskRouter.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     await Task.destroy({
