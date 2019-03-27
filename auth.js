@@ -17,9 +17,9 @@ const restrict = async (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
     const data = jwt.verify(token, SECRET);
-    const artist = await User.findByPk(data.id);
+    const user = await User.findByPk(data.id);
 
-    res.locals.artist = artist;
+    res.locals.user = user;
 
     next();
   } catch (e) {
