@@ -18,16 +18,16 @@ async function seed() {
   });
 
   const bruno = await User.create({
-    user_name: 'Bruno',
-    user_last_name: 'Cappelleti',
+    user_first_name: 'Bruno',
+    user_last_name: 'blah',
     user_email: 'bruno@gmail.com',
     password_digest: 'this is a password for now'
   });
   await bruno.setFestival(lollapalooza);
 
   const shirin = await User.create({
-    user_name: 'shirin',
-    user_last_name: 'anlen',
+    user_first_name: 'shirin',
+    user_last_name: 'bleep',
     user_email: 'shirin@gmail.com',
     password_digest: 'this is another password for now'
   });

@@ -9,7 +9,7 @@ class LoginForm extends Component {
       <div className="login">
         <h1>Log in</h1>
 
-        <a href="#" onClick={this.props.onClick}>or sign up for a new account</a>
+        <Link to='/register'>or sign up for a new account</Link>
 
         <form onSubmit={this.props.onSubmit}>
           <input className="login-email"
@@ -17,7 +17,7 @@ class LoginForm extends Component {
           type="text"
           onChange={this.props.handleChange}
           id="email"
-          name="email"
+          name="user_email"
           value={this.props.email}
           placeholder="Email"/>
           <input className="login-psw"

@@ -23,7 +23,7 @@ const Festival = sequelize.define('festival',{
 //choose whichever pic they want
 //instead of having to copy an img url online lol
 const User = sequelize.define('user', {
-  user_name: Sequelize.STRING,
+  user_first_name: Sequelize.STRING,
   user_last_name: Sequelize.STRING,
   user_email: Sequelize.STRING,
   // user_img: Sequelize.STRING,
