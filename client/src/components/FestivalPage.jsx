@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { Link ,Route } from 'react-router-dom';
-import Todos from './FestivalForm/Todos';
-import TodoHeader from './FestivalForm/TodoHeader';
-import AddTodo from './FestivalForm/AddTodo';
+import ToDoList from './FestivalForm/ToDoList';
 import Counter from './Counter';
 import axios from 'axios';
 import { getFestival } from '../services/api-helper';
 
 class FestivalPage extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       user: '',
       festival: '',

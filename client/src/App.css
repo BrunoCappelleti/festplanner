@@ -15,6 +15,47 @@
   background: #666;
 }
 
+.to-do-tabs {
+  display: flex;
+}
+
+.to-do-tabs-button {
+  flex-grow: 1;
+}
+
+.to-do-tabs-button-focused {
+  flex-grow: 2;
+}
+
+.to-do-list {
+  width: 40vw;
+  margin: 0 auto;
+}
+
+.to-do-items {
+max-height: 40vh;
+overflow-y: scroll;
+}
+
+.to-do-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-update-delete {
+  display: flex;
+}
+
+.task-update, .task-delete {
+  padding: 0 10px;
+  text-align: center;
+  margin: 0 5px;
+}
+
+.task-update:hover, .task-delete:hover {
+  background: black;
+  color: white;
+  
 /*  FOOTER */
 
 .Footer{
