@@ -17,13 +17,13 @@ class App extends Component {
         all:[]
       },
     loginData: {
-      email: '',
+      user_email: '',
       password: ''
     },
     registerFormData: {
-      first_name: '',
-      last_name: '',
-      email: '',
+      user_first_name: '',
+      user_last_name: '',
+      user_email: '',
       password: ''
     }
   }
@@ -58,9 +58,9 @@ onClick(){
     const data = await registerUser(this.state.registerFormData)
     this.setState({
       registerFormData: {
-        first_name: '',
-        last_name: '',
-        email: '',
+        user_first_name: '',
+        user_last_name: '',
+        user_email: '',
         password: ''
       }
     })
@@ -72,7 +72,7 @@ onClick(){
     const data = await loginUser(this.state.loginData)
     this.setState({
       loginData:{
-        email: '',
+        user_email: '',
         password:''
       }
     })
@@ -110,7 +110,7 @@ onClick(){
         </div>
       )} />
 
-      <Route exact path='/festival' render={FestivalPage} />
+      <Route exact path='/festival' component={FestivalPage} />
 
       </div>
     );

@@ -14,7 +14,7 @@ const RegisterForm = (props) => {
         type="text"
         onChange={props.handleChange}
         id="first_name"
-        name="first_name"
+        name="user_first_name"
         value={props.first_name} />
         </div>
 
@@ -25,7 +25,7 @@ const RegisterForm = (props) => {
         type="text"
         onChange={props.handleChange}
         id="last_name"
-        name="last_name"
+        name="user_last_name"
         value={props.last_name} />
         </div>
 
@@ -36,7 +36,7 @@ const RegisterForm = (props) => {
         type="text"
         onChange={props.handleChange}
         id="email"
-        name="email"
+        name="user_email"
         value={props.email} />
         </div>
 

@@ -17,7 +17,7 @@ class LoginForm extends Component {
           type="text"
           onChange={this.props.handleChange}
           id="email"
-          name="email"
+          name="user_email"
           value={this.props.email}
           placeholder="Email"/>
           <input className="login-psw"
