@@ -25,10 +25,10 @@ const registerUser = async (data) => {
   return resp.data
 }
 
-const getTime = async () => {
+const getFestival = async () => {
   const resp = await axios.get(`${BASE_URL}/festivals`)
   console.log(resp.data.festivals[0].festival_date);
-  return resp.data.festivals[0].festival_date;
+  return resp.data.festivals[0];
   }
 
 const getTasks = async () => {
@@ -56,5 +56,5 @@ export {
   postTask,
   loginUser,
   registerUser,
-  getTime
+  getFestival
 }

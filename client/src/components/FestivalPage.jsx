@@ -5,66 +5,42 @@ import TodoHeader from './FestivalForm/TodoHeader';
 import AddTodo from './FestivalForm/AddTodo';
 import Counter from './Counter';
 import axios from 'axios';
-import { getTasks, delTask, postTask } from '../services/api-helper';
+import { getFestival } from '../services/api-helper';
 
 class FestivalPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: []
+      user: '',
+      festival: '',
+      loading: false
     }
-    this.addTodo = this.addTodo.bind(this)
   }
 
   async componentDidMount(){
-    const todos = await getTasks();
-    this.setState({
-      todos
-    })
-  }
-
-  toggleComplete = (id) => {
-    console.log(id);
-    this.setState({
-      todos: this.state.todos.map(todo => {
-        if(todo.id === id) {
-          todo.completed = !todo.completed
-        }
-        return todo;
-      })
-    })
-  }
-
-//it's weird that it didn't work with async and await here...
-  delTodo = (id) => {
-   delTask(id);
-    this.setState({
-        todos: [...this.state.todos.filter(todo =>todo.id
-        !==id)] })
+    try {
+      const resp = await getFestival()
+      console.log(resp);
+      this.setState({
+        festival: resp,
+        loading: true,
+      });
+    } catch(e) {
+      console.log(e);
     }
-
-  async addTodo(title){
-    const resp = await postTask(title);
-    this.setState(prevState => ({
-        todos: [...prevState.todos, resp] }))
-    }
+  }
 
   render() {
-    console.log(this.state.todos);
+    const { festival } = this.state;
     return (
       <div className="App">
         <div className="cointainer">
-          <Counter />
-          <TodoHeader />
-
-          <Route path="/" render={props => (
-            <div>
-            <AddTodo addTodo={this.addTodo}/>
-            <Todos todos={this.state.todos}
-            toggleComplete={this.toggleComplete}
-            delTodo={this.delTodo}/>
-            </div>
-          )} />
+          <h1>{festival.festival_name}</h1>
+          <h3>{festival.festival_location} • {festival.festival_simpleDate}</h3>
+          {!this.state.loading && <div>Please hold...</div>}
+          {this.state.loading && <Counter
+            date={festival.festival_date}
+             />}
         </div>
       </div>
     );
