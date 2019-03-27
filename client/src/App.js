@@ -41,9 +41,6 @@ class App extends Component {
   async handleRegister(e) {
     e.preventDefault();
     const data = await registerUser(this.state.formData)
-
-
-    
     this.setState({
       formData: {
         user_first_name: '',

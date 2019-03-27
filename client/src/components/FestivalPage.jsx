@@ -3,6 +3,7 @@ import { Link ,Route } from 'react-router-dom';
 import Todos from './FestivalForm/Todos';
 import TodoHeader from './FestivalForm/TodoHeader';
 import AddTodo from './FestivalForm/AddTodo';
+import Counter from './Counter';
 import axios from 'axios';
 import { getTasks, delTask, postTask } from '../services/api-helper';
 
@@ -53,7 +54,9 @@ class FestivalPage extends Component {
     return (
       <div className="App">
         <div className="cointainer">
+          <Counter />
           <TodoHeader />
+
           <Route path="/" render={props => (
             <div>
             <AddTodo addTodo={this.addTodo}/>

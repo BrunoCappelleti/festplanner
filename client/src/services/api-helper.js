@@ -25,6 +25,12 @@ const registerUser = async (data) => {
   return resp.data
 }
 
+const getTime = async () => {
+  const resp = await axios.get(`${BASE_URL}/festivals`)
+  console.log(resp.data.festivals[0].festival_date);
+  return resp.data.festivals[0].festival_date;
+  }
+
 const getTasks = async () => {
   const resp = await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
   return resp.data;
@@ -49,5 +55,6 @@ export {
   delTask,
   postTask,
   loginUser,
-  registerUser
+  registerUser,
+  getTime
 }
