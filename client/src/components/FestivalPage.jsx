@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link ,Route } from 'react-router-dom';
-import ToDoList from './FestivalForm/ToDoList';
 import Counter from './Counter';
-import axios from 'axios';
+import Overview from './FestivalForm/Overview';
+import Amenities from './FestivalForm/Amenities';
+import Map from './FestivalForm/Map';
 import { getFestival } from '../services/api-helper';
 
 class FestivalPage extends Component {
@@ -32,7 +32,8 @@ class FestivalPage extends Component {
     const { festival } = this.state;
     return (
       <div className="App">
-        <div className="cointainer">
+        <div className="hero">
+          <img src={festival.festival_img} alt=''/>
           <h1>{festival.festival_name}</h1>
           <h3>{festival.festival_location} • {festival.festival_simpleDate}</h3>
           {!this.state.loading && <div>Please hold...</div>}
@@ -40,6 +41,14 @@ class FestivalPage extends Component {
             date={festival.festival_date}
              />}
         </div>
+        <div className="main">
+        <Overview festival={festival}/>
+        <Amenities />
+        {!this.state.loading && <div>Please hold...</div>}
+        {this.state.loading && <Map
+        festival={festival}/>}
+        </div>
+
       </div>
     );
   }
