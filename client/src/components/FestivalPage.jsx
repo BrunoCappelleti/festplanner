@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { Link ,Route } from 'react-router-dom';
-import ToDoList from './FestivalForm/ToDoList';
 import Counter from './Counter';
 import Overview from './FestivalForm/Overview';
 import Amenities from './FestivalForm/Amenities';
 import Map from './FestivalForm/Map';
-import axios from 'axios';
 import { getFestival } from '../services/api-helper';
 
 class FestivalPage extends Component {

@@ -13,14 +13,8 @@ class Counter extends Component {
   }
 
     async componentDidMount(){
-      console.log(this.props.date)
-      const { date } =this.props
-      // const date = await getTime(date);
-      this.setState({
-        countDown: date
-      })
-      console.log(date);
-      let countDownDate = new Date(this.props.date).getTime();
+      const { date } = this.props
+      const countDownDate = new Date(date).getTime();
       setInterval(() => {
         let now = new Date().getTime();
         let distance = countDownDate - now;
@@ -34,7 +28,6 @@ class Counter extends Component {
 }
 
       render() {
-        const {countDown} =this.state
         return (
         <div>
           <h1>{this.state.days} </h1>
