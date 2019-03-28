@@ -55,7 +55,7 @@ overflow-y: scroll;
 .task-update:hover, .task-delete:hover {
   background: black;
   color: white;
-  
+}
 /*  FOOTER */
 
 .Footer{
