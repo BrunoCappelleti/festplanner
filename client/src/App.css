@@ -1,3 +1,6 @@
+.App{
+  height: 100vh;
+}
 .cointainer {
   padding: 0 5px;
 }
@@ -55,7 +58,7 @@ overflow-y: scroll;
 .task-update:hover, .task-delete:hover {
   background: black;
   color: white;
-  
+}
 /*  FOOTER */
 
 .Footer{
@@ -151,11 +154,12 @@ overflow-y: scroll;
 }
 /* ********************************* */
 /* REGISTER FORM */
+
 .RegisterForm{
   text-align: center;
-  height: 100vh;
-  padding-top: 10em;
-  padding-left: 3em;
+  margin: 8px;
+  height: 86vh;
+  padding-top: 7em;
   box-shadow: -4px 4px 8px 0 rgba(101, 101, 101, 0.5);
   background-color: #f0f0f0;
 }
@@ -192,3 +196,188 @@ overflow-y: scroll;
   color: #ffffff;
   margin: 2em;
 }
+/* MEDIA QUERIES FOR REGISTER */
+
+/* **************************** */
+/* LOGIN FORM */
+
+.LoginForm{
+  padding: 4em;
+  margin: 8px;
+  height: 80vh;
+  padding-top: 7em;
+  box-shadow: -4px 4px 8px 0 rgba(101, 101, 101, 0.5);
+  background-color: #f0f0f0;
+}
+
+.login{
+  font-family: Helvetica;
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.78;
+  letter-spacing: normal;
+  color: #4a4a4a;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.new-account{
+font-family: Helvetica;
+ font-size: 16px;
+ font-weight: 300;
+ font-style: normal;
+ font-stretch: normal;
+ line-height: normal;
+ letter-spacing: normal;
+}
+
+a{
+  text-decoration: none;
+}
+
+.form-login{
+  display: flex;
+  flex-direction: column;
+}
+.text-login{
+  margin-left: 2em;
+}
+
+.login-input{
+  font-size: 20px;
+  padding: 5px;
+  padding-left: 15px;
+  margin: 12px;
+  width: 328px;
+  height: 30px;
+  border: solid 1px #6f6f6f;
+  background-color: rgba(240,240,240,.2);
+}
+
+.login-button{
+  width: 350px;
+  height: 40px;
+  padding-left: 15px;
+  margin: 12px;
+  background-color: #ff8f07;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: 300;
+  color: #ffffff;
+}
+
+/* MEDIA QUERIES FOR LOGIN */
+@media only screen and (max-width: 1481px) {
+  /* .App{
+    background-attachment: fixed;
+    background-color: red;
+  } */
+  .LoginForm {
+    overflow-x: hidden;
+    background-attachment: fixed;
+    height: 88vh;
+    width: 65vh;
+  }
+  .login{
+    font-size: 105px;
+  }
+
+  .new-account{
+   font-size: 36px;
+  }
+
+  .login-input{
+    font-size: 40px;
+    padding: 5px;
+    padding-left: 15px;
+    margin: 12px;
+    width: 428px;
+    height: 50px;
+    border: solid 1px #6f6f6f;
+    background-color: rgba(240,240,240,.2);
+  }
+
+  .login-button{
+    width: 450px;
+    height: 52px;
+    font-size: 32px;
+    font-weight: 500;
+  }
+  @media only screen and (max-width: 375px) {
+    /* .App{
+      background-attachment: fixed;
+      background-color: red;
+    } */
+    .LoginForm {
+      overflow-x: hidden;
+      background-attachment: fixed;
+      height: 77vh;
+      width: 30vh;
+    }
+    .login{
+      font-size: 30px;
+    }
+
+    .new-account{
+     font-size: 15px;
+    }
+
+    .login-input{
+      font-size: 20px;
+      padding: 3px;
+      padding-left: 15px;
+      margin: 5px;
+      width: 208px;
+      height: 30px;
+      border: solid 1px #6f6f6f;
+      background-color: rgba(240,240,240,.2);
+    }
+
+    .login-button{
+      width: 220px;
+      height: 30px;
+      font-size: 22px;
+      font-weight: 300;
+    }
+  }
+
+  @media only screen and (max-width: 414px) {
+    /* .App{
+      background-attachment: fixed;
+      background-color: red;
+    } */
+    .LoginForm {
+      background-attachment: fixed;
+      height: 75vh;
+      width: 37vh;
+    }
+    .login{
+      font-size: 30px;
+    }
+
+    .new-account{
+     font-size: 15px;
+    }
+
+    .login-input{
+      font-size: 20px;
+      padding: 3px;
+      padding-left: 15px;
+      margin: 5px;
+      width: 208px;
+      height: 30px;
+      border: solid 1px #6f6f6f;
+      background-color: rgba(240,240,240,.2);
+    }
+
+    .login-button{
+      width: 220px;
+      height: 30px;
+      font-size: 18px;
+      font-weight: 300;
+    }
+  }
+}
+/* **************************** */

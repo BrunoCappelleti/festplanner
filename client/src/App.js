@@ -95,8 +95,8 @@ class App extends Component {
         />
         </div>
       )} />
-      <Footer />
-      <Route exact path='/festival' render={FestivalPage} />
+
+      <Route exact path='/festival' component={FestivalPage} />
       </div>
     );
   }
