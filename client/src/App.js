@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link ,Route } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import './App.css';
-import axios from 'axios';
 import FestivalPage from './components/FestivalPage';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
@@ -42,6 +41,7 @@ class App extends Component {
   async handleRegister(e) {
     e.preventDefault();
     const data = await registerUser(this.state.formData)
+    console.log(data);
     this.setState({
       formData: {
         user_first_name: '',
@@ -57,6 +57,7 @@ class App extends Component {
   async handleLogin(e) {
     e.preventDefault();
     const data = await loginUser(this.state.formData)
+    console.log(data);
     this.setState({
       formData: {
         user_email: '',
@@ -71,32 +72,31 @@ class App extends Component {
       <div className="App">
       <Route exact path='/' render={(props) => (
         <div>
-        <LoginForm
-        {...props}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleLogin}
-        onSubmit={this.handleLogin}
-        email={this.state.formData.email}
-        password={this.state.formData.password}
-        />
+          <LoginForm
+          {...props}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleLogin}
+          onSubmit={this.handleLogin}
+          email={this.state.formData.email}
+          password={this.state.formData.password} />
         </div>
       )} />
 
+      <Route exact path='/festival' component={FestivalPage} />
+
       <Route exact path='/register' render={(props) => (
         <div>
-        <RegisterForm
-        {...props}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleRegister}
-        first_name={this.state.formData.first_name}
-        last_name={this.state.formData.last_name}
-        email={this.state.formData.email}
-        password={this.state.formData.password}
-        />
+          <RegisterForm
+          {...props}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleRegister}
+          first_name={this.state.formData.first_name}
+          last_name={this.state.formData.last_name}
+          email={this.state.formData.email}
+          password={this.state.formData.password} />
         </div>
       )} />
       <Footer />
-      <Route exact path='/festival' render={FestivalPage} />
       </div>
     );
   }
