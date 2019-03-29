@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Counter from './Counter';
+import ToDoList from './FestivalForm/ToDoList'
 import Overview from './FestivalForm/Overview';
 import Amenities from './FestivalForm/Amenities';
 import Map from './FestivalForm/Map';
@@ -40,6 +41,7 @@ class FestivalPage extends Component {
           {this.state.loading && <Counter
             date={festival.festival_date}
              />}
+          <ToDoList />
         </div>
         <div className="main">
         <Overview festival={festival}/>

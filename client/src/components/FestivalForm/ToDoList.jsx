@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link ,Route } from 'react-router-dom';
 import ToDoListItems from './ToDoListItems';
 import TaskForm from './TaskForm';
 
@@ -7,16 +6,16 @@ class ToDoList extends Component {
   constructor(){
     super();
     this.state = {
-      allTasks: [{ task_title: 'test', task_status: "To-Do", task_date: new Date("Jan 5, 2021 15:27:25"), task_notes: 'heyheyhey', id: 1 },
-        { task_title: 'yes', task_status: "To-Do", task_date: new Date(), task_notes: 'heyheyhey', id: 2 },
-        { task_title: 'this works', task_status: "In Progress", task_date: new Date(), task_notes: 'heyheyhey', id: 3 },
-        { task_title: 'for sure', task_status: "To-Do", task_date: new Date(), task_notes: 'heyheyhey', id: 4 },
-        { task_title: 'test', task_status: "To-Do", task_date: new Date(), task_notes: 'heyheyhey', id: 5 },
-        { task_title: 'test', task_status: "In Progress", task_date: new Date(), task_notes: 'heyheyhey', id: 6 },
-        { task_title: 'test', task_status: "Done", task_date: new Date(), task_notes: 'heyheyhey', id: 7 },
-        { task_title: 'good job', task_status: "Done", task_date: new Date(), task_notes: 'yessssss', id: 8 },
-        { task_title: 'test', task_status: "Done", task_date: new Date(), task_notes: 'heyheyhey', id: 9 },
-        { task_title: 'test', task_status: "To-Do", task_date: new Date(), task_notes: 'heyheyhey', id: 10 },
+      allTasks: [{ task_title: 'Buy Tickets', task_status: "To-Do", task_date: new Date("Jan 5, 2021 15:27:25"), task_notes: 'heyheyhey', id: 1 },
+        { task_title: 'Get sunglasses', task_status: "To-Do", task_date: new Date(), task_notes: 'heyheyhey', id: 2 },
+        { task_title: 'Buy sunscreen', task_status: "In Progress", task_date: new Date(), task_notes: 'heyheyhey', id: 3 },
+        { task_title: 'Get a super cool hat', task_status: "To-Do", task_date: new Date(), task_notes: 'heyheyhey', id: 4 },
+        { task_title: 'Tell my friends I am going', task_status: "To-Do", task_date: new Date(), task_notes: 'heyheyhey', id: 5 },
+        { task_title: 'Get new memory stick for camera', task_status: "In Progress", task_date: new Date(), task_notes: 'heyheyhey', id: 6 },
+        { task_title: 'Aquire body-glitter', task_status: "Done", task_date: new Date(), task_notes: 'heyheyhey', id: 7 },
+        { task_title: 'Pack water', task_status: "Done", task_date: new Date(), task_notes: 'yessssss', id: 8 },
+        { task_title: 'Dont forget tooth brush', task_status: "Done", task_date: new Date(), task_notes: 'heyheyhey', id: 9 },
+        { task_title: 'Last Task!', task_status: "To-Do", task_date: new Date(), task_notes: 'heyheyhey', id: 10 },
       ],
       renderTasks: [],
       renderTab: 'all',
@@ -55,27 +54,47 @@ class ToDoList extends Component {
   }
 
   toggleCreateForm(ev) {
-    ev.preventDefault();
+    if(ev){
+       ev.preventDefault();
+     }
     this.setState(prevState => ({
       showForm: !prevState.showForm,
     }))
   }
 
   async createTask(newTask) {
-    const { task_title, task_date, task_notes, task_status } = newTask
+    // const { task_title, task_date, task_notes, task_status } = newTask
     try {
+      await this.setState( prevState => ({
+        // axios call to create from apiHelper
+        allTasks: [...prevState.allTasks, newTask]
+      }));
       console.log(newTask);
-      // axios call to create from apiHelper
+      this.changeTab(this.state.renderTab);
+      this.toggleCreateForm();
     } catch(e) {
       console.log(e)
     }
   }
 
-  async updateTask(updatedTask) {
-    const { task_title, task_date, task_notes, task_status } = updatedTask
+  async updateTask(updatedTask, id) {
+    // const { task_title, task_date, task_notes, task_status } = updatedTask
     try {
-      console.log(updatedTask, 'You updated!');
-      // axios call to update from apiHelper
+      console.log('You update', updatedTask);
+      const allTasks = this.state.allTasks
+      const updatedTasks = allTasks.map( el => {
+        if(el.id === id){
+          return updatedTask
+        } else {
+          return el
+        }
+      });
+      console.log(updatedTasks)
+      await this.setState({
+        allTasks: updatedTasks
+      });
+      this.changeTab(this.state.renderTab);
+      this.toggleCreateForm();
     } catch(e) {
       console.log(e)
     }
@@ -90,19 +109,6 @@ class ToDoList extends Component {
     });
     this.changeTab(this.state.renderTab);
   }
-
-  // this feature needs to be added
-  // toggleComplete = (id) => {
-  //   console.log(id);
-  //   this.setState({
-  //     todos: this.state.todos.map(todo => {
-  //       if(todo.id === id) {
-  //         todo.completed = !todo.completed
-  //       }
-  //       return todo;
-  //     })
-  //   })
-  // }
 
   render() {
     return (
