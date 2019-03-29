@@ -82,8 +82,6 @@ class App extends Component {
         </div>
       )} />
 
-      <Route exact path='/festival' component={FestivalPage} />
-
       <Route exact path='/register' render={(props) => (
         <div>
           <RegisterForm

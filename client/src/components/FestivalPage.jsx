@@ -41,7 +41,6 @@ class FestivalPage extends Component {
           {this.state.loading && <Counter
             date={festival.festival_date}
              />}
-          <ToDoList />
         </div>
         <div className="main">
         <Overview festival={festival}/>
@@ -49,6 +48,7 @@ class FestivalPage extends Component {
         {!this.state.loading && <div>Please hold...</div>}
         {this.state.loading && <Map
         festival={festival}/>}
+        <ToDoList />
         </div>
 
       </div>
