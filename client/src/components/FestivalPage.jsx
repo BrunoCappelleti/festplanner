@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Counter from './Counter';
+import ToDoList from './FestivalForm/ToDoList'
 import { getFestival } from '../services/api-helper';
 
 class FestivalPage extends Component {
@@ -36,6 +37,7 @@ class FestivalPage extends Component {
           {this.state.loading && <Counter
             date={festival.festival_date}
              />}
+          <ToDoList />
         </div>
       </div>
     );

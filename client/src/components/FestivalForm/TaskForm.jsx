@@ -21,6 +21,7 @@ class TaskForm extends Component {
   componentDidMount() {
     const focusedTask = this.props.focusedTask
     if(focusedTask) {
+      console.log(focusedTask)
       this.setState({
         creating: false,
         taskForm: {
@@ -54,14 +55,16 @@ class TaskForm extends Component {
 
   render() {
     const {task_title, task_date, task_notes, task_status} = this.state.taskForm
-    const { creating } = this.state
+    const { creating, taskForm, } = this.state
+    const { createTask, updateTask, focusedTask } = this.props
     return (
       <div>
         <button onClick={this.props.showForm}>Back</button>
         <h1>{creating ? 'Add a new Task' : 'Update your Task'}</h1>
         <form onSubmit={(ev) => {
           ev.preventDefault();
-          creating ? this.props.createTask(this.state.taskForm) : this.props.updateTask(this.state.taskForm)}}>
+          creating ? createTask(taskForm) : updateTask(taskForm, focusedTask.id)
+        }}>
           <label>Task Title: </label>
           <input
             type="text"
@@ -71,6 +74,7 @@ class TaskForm extends Component {
           <label>Task status: </label>
           <select
             name="task_status"
+            value={task_status}
             onChange={this.handleChange}>
             <option value="To-Do">To-do</option>
             <option value="In Progress">In Progress</option>
@@ -87,7 +91,7 @@ class TaskForm extends Component {
             onChange={this.handleCalandar} />
           <input
             type="submit"
-            value="Create a new Task" />
+            value={creating ? 'Making a new Task!' : 'Apply your updates!'} />
         </form>
       </div>
     )
