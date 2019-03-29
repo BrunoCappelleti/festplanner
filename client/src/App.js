@@ -96,6 +96,7 @@ class App extends Component {
           password={this.state.formData.password} />
         </div>
       )} />
+      <Route exact path='/festival' component={FestivalPage} />
       <Footer />
       </div>
     );
