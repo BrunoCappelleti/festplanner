@@ -1,12 +1,26 @@
 const { Router } = require('express');
-const {  User } = require('../models');
+const {  Festival, User } = require('../models');
+const { taskRouter } = require('./taskRouter');
 const { hash, encode, compare, restrict } = require('../auth')
+
 const userRouter = Router();
 
-// userRouter.get('/', async (req, res) => {
-//   res.json({ users: res.locals.user})
-// });
+const buildAuthResponse = (user) => {
+  const { id, user_first_name, user_last_name, user_email } = user
+  const token_data = {
+    id,
+    user_first_name,
+    user_last_name,
+    user_email,
+  };
 
+  const token = encode(token_data);
+
+  return {
+    user: token_data,
+    token,
+  }
+}
 
 userRouter.get('/', async (req, res) => {
   try{
@@ -26,40 +40,40 @@ userRouter.post('/login', async (req, res) => {
         user_email,
       },
     });
-    if (user !== null) {
-      const userData = {
-        ...user.dataValues
-      };
-      const authenticated = await compare(password, userData.password_digest);
-      delete userData.password_digest;
-      const token = await encode(userData);
-      res.json({
-        userData,
-        token
-      });
-    };
+    if (await compare(password, user.password_digest)) {
+      const loginData = buildAuthResponse(user);
+      res.json({ loginData });
+    } else {
+      res.status(401).send('Invalid Creds. BE GONE!!')
+    }
   } catch (e) {
-    res.status(401).send('Invalid Credentials')
     console.error(e);
+    res.status(500).send(e.message)
   };
 });
 
 userRouter.post('/', async (req, res) => {
   try{
-  const { user_first_name, user_last_name, user_email, password } = req.body;
-  const password_digest = await hash(password);
-  const user = await User.create({
-    user_first_name,
-    user_last_name,
-    user_email,
-    password_digest
-  });
-    const userData = {
-      ...user.dataValues,
-    }
-    res.json({user})
-  }catch(e){
+    const { user_first_name, user_last_name, user_email, password } = req.body;
+    const password_digest = await hash(password);
+    const festival = await Festival.findByPk(res.locals.fesId);
+    const newUser = await festival.createUser({
+      user_first_name,
+      user_last_name,
+      user_email,
+      password_digest
+    });
+    const loginData = buildAuthResponse(newUser);
+    res.json({ loginData });
+  } catch(e) {
     console.error(e.message);
+    res.status(500).send(e.message);
+  };
+});
 
-}});
+userRouter.use('/:id/tasks', (req, res, next) => {
+  res.locals.userId = req.params.id
+  next();
+}, taskRouter)
+
 module.exports = { userRouter }
