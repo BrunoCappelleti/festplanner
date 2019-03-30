@@ -35,7 +35,7 @@ class FestivalPage extends Component {
       <div className="FestivalPage">
         <div className="hero">
           <img className="hero-img" src={festival.festival_img} alt=''/>
-          <h1>{festival.festival_name}</h1>
+          <h1 className="">{festival.festival_name}</h1>
           <h3>{festival.festival_location} • {festival.festival_simpleDate}</h3>
           {!this.state.loading && <div>Please hold...</div>}
           {this.state.loading && <Counter
@@ -51,7 +51,7 @@ class FestivalPage extends Component {
           festival={festival}/>}
         </div>
         <Amenities />
-        
+
         <ToDoList />
         </div>
 

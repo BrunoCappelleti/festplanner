@@ -16,6 +16,7 @@ function Map(props){
           position="relative"
           allowFullScreen/>
     <p className="location-map">Grant Park - Chicago, IL</p>
+
   </div>
 )};
 export default Map;
