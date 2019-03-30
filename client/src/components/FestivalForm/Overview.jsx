@@ -6,7 +6,9 @@ function Overview(props){
   return(
     <div>
       <h2>Overview</h2>
-      <p>{festival.festival_description}</p>
+      <div className="festival-description">
+        <p>{festival.festival_description}</p>
+      </div>
     </div>
   )};
 export default Overview;

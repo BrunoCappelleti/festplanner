@@ -383,3 +383,25 @@ a{
   }
 }
 /* **************************** */
+
+/* FESTIVAL PAGE */
+.FestivalPage{
+  background-color: red;
+}
+.hero{
+
+}
+
+.hero-img{
+  width: 100vw;
+  height: 40vh;
+}
+
+.festival-description{
+  width: 25em;
+}
+
+.Overview-Amenities{
+  display: flex;
+  padding: 100px;
+}
