@@ -43,7 +43,7 @@ class FestivalPage extends Component {
              />}
         </div>
         <div className="main">
-        <div className="Overview-Amenities">
+        <div className="Overview-Map">
 
         <Overview festival={festival}/>
           {!this.state.loading && <div>Please hold...</div>}

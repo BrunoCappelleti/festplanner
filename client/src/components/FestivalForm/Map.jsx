@@ -5,16 +5,17 @@ function Map(props){
   const { festival } = props;
   console.log(festival.festival_map);
   return (
-  <div>
-
-<Iframe url='https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Grant%20Park%2C%20IL+(Lollapalooza)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed'
-      width="450px"
-      height="450px"
-      id="myId"
-      className="myClassname"
-      display="initial"
-      position="relative"
-      allowFullScreen/>
+  <div className="Map">
+    <h1>Location</h1>
+    <Iframe url='https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Grant%20Park%2C%20IL+(Lollapalooza)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed'
+          width="450px"
+          height="450px"
+          id="myId"
+          className="myClassname"
+          display="initial"
+          position="relative"
+          allowFullScreen/>
+    <p className="location-map">Grant Park - Chicago, IL</p>
   </div>
 )};
 export default Map;
