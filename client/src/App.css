@@ -389,6 +389,13 @@ a{
   position: relative;
 }
 
+.hero-img-div{
+  width: 100vw;
+  height: 55em;
+  background-color: rgba(0, 0, 0, .6);
+  position: absolute;
+}
+
 .hero-img{
   width: 100vw;
   height: 55em;

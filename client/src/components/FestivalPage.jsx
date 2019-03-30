@@ -35,7 +35,10 @@ class FestivalPage extends Component {
       <div className="App FestivalPage">
         <div className="hero">
           <div className="header-festival-page">
-            <img className="hero-img" src={festival.festival_img} alt=''/>
+            <div className="hero-img-div">
+            </div>
+            
+              <img className="hero-img" src={festival.festival_img} alt=''/>
             <div className="text-hero-festival-page">
               <h1 className="festival-name">{festival.festival_name}</h1>
               <h3 className="festival-location">{festival.festival_location} • {festival.festival_simpleDate}</h3>
