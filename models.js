@@ -20,20 +20,14 @@ const Festival = sequelize.define('festival',{
   festival_map: Sequelize.TEXT
 });
 
-//User table for post MVP
-//The plan is to change the img type so the user can
-//choose whichever pic they want
-//instead of having to copy an img url online lol
 const User = sequelize.define('user', {
   user_first_name: Sequelize.STRING,
   user_last_name: Sequelize.STRING,
   user_email: Sequelize.STRING,
-  // user_img: Sequelize.STRING,
   password_digest: Sequelize.STRING,
-  festivalId:{
+  festival_id:{
     type: Sequelize.INTEGER,
     defaultValue: 1
-
   }
 })
 
@@ -49,8 +43,12 @@ const Task = sequelize.define('task', {
 
 Festival.hasMany(User);
 User.belongsTo(Festival);
-Task.belongsTo(User);
 User.hasMany(Task);
+Task.belongsTo(User, {
+  foreignKey: {
+    allowNull: false,
+  }
+});
 
 module.exports = {
   sequelize,
