@@ -17,7 +17,5 @@ app.get('/', (req, res) => {
 });
 
 app.use('/festivals', festivalRouter);
-app.use('/users', userRouter);
-app.use('/tasks', taskRouter);
 
 app.listen(5000, () => console.log('Here dude'));
