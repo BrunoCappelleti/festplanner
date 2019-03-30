@@ -398,9 +398,12 @@ a{
   height: 40vh;
 }
 
+/* OVERVIEW */
+
 .Overview{
   padding: 0;
   margin: 0;
+  height: 400px;
 }
 
 .overview-title{
@@ -426,6 +429,7 @@ a{
 
 .Map{
   padding-left: 10em;
+  margin-bottom: 0;
 }
 
 .location-map{
@@ -437,6 +441,7 @@ a{
 .Overview-Map{
   display: flex;
   padding-left: 60px;
+  height: 358px;
 }
 
 .more-informations{
@@ -466,12 +471,11 @@ a{
 /* AMENITIES */
 
 .Amenities{
-  background-color: green;
   padding: 10px;
   width: 900px;
+  height: 800px;
 }
 .amenities-content{
-  background-color: lightblue;
   padding-left: 2em;
   margin: 2em;
   display: flex;
@@ -481,13 +485,15 @@ a{
   flex-grow: 1;
 }
 .amenities-title{
-  padding-left: 50px;
+  padding-left: 80px;
   font-family: Helvetica;
   font-size: 30px;
+  margin-bottom: 0;
 }
 
 .icon-amenities{
   margin: 2em;
+  margin-top: 0;
   padding: 18px;
   background-color: #0a9dff;
   border-radius: 5em;
@@ -510,4 +516,10 @@ a{
 .each-icon-content{
   margin: 0;
   padding: 0;
+}
+
+/* TO-DO LIST */
+.to-do-list{
+  display: block;
+  background-color: blue;
 }
