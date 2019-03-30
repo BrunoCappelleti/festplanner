@@ -3,8 +3,8 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize({
   database: 'festplanner_db',
   dialect: 'postgres',
-  username: `sequelize`,
-  password: `password`,
+  // username: `sequelize`,
+  // password: `password`,
   define: {
     underscored: true,
     }
