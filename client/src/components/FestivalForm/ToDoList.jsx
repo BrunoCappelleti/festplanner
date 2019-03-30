@@ -113,41 +113,44 @@ class ToDoList extends Component {
   render() {
     return (
       <div className="to-do-list">
-        {this.state.showForm &&
-          <TaskForm
-            showForm={this.toggleCreateForm}
-            focusedTask={this.state.focusedTask}
-            createTask={this.createTask}
-            updateTask={this.updateTask} />}
-        {!this.state.showForm && <button onClick={this.toggleCreateForm}>Make new task</button>}
+        <div className="todo-newtaskbtt">
+          <h1>To Do List</h1>
+          {this.state.showForm &&
+            <TaskForm
+              showForm={this.toggleCreateForm}
+              focusedTask={this.state.focusedTask}
+              createTask={this.createTask}
+              updateTask={this.updateTask} />}
+          {!this.state.showForm && <button className="make-new-task" onClick={this.toggleCreateForm}>Add new task</button>}
+        </div>
         <div className="to-do-tabs">
           <button
             className={this.state.renderTab === "all" ? "to-do-tabs-button-focused" : "to-do-tabs-button"}
             onClick={(ev) => {
               ev.preventDefault();
               this.changeTab('all');
-            }}>All
+            }}>ALL
           </button>
           <button
             className={this.state.renderTab === "to-do" ? "to-do-tabs-button-focused" : "to-do-tabs-button"}
             onClick={(ev) => {
               ev.preventDefault();
               this.changeTab('To-Do');
-            }}>To-Do
+            }}>TO DO
           </button>
           <button
             className={this.state.renderTab === "in-progress" ? "to-do-tabs-button-focused" : "to-do-tabs-button"}
             onClick={(ev) => {
               ev.preventDefault();
               this.changeTab('In-Progress');
-            }}>In-Progress
+            }}>IN PROGRESS
           </button>
           <button
             className={this.state.renderTab === "done" ? "to-do-tabs-button-focused" : "to-do-tabs-button"}
             onClick={(ev) => {
               ev.preventDefault();
               this.changeTab('Done');
-            }}>Done
+            }}>DONE
           </button>
         </div>
         <ToDoListItems

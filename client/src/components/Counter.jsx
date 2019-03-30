@@ -29,15 +29,23 @@ class Counter extends Component {
 
       render() {
         return (
-        <div>
-          <h1>{this.state.days} </h1>
-          <h4>days</h4>
-          <h1>{this.state.hours}</h1>
-          <h4>hours</h4>
-          <h1>{this.state.minutes}</h1>
-          <h4>minutes</h4>
-          <h1>{this.state.seconds}</h1>
-          <h4>seconds</h4>
+        <div className="Counter">
+          <div className="each-el-counter">
+            <h1>{this.state.days} </h1>
+            <h4>days</h4>
+          </div>
+           <div className="each-el-counter">
+            <h1>{this.state.hours}</h1>
+            <h4>hours</h4>
+          </div>
+          <div className="each-el-counter">
+            <h1>{this.state.minutes}</h1>
+            <h4>minutes</h4>
+          </div>
+          <div className="each-el-counter">
+            <h1>{this.state.seconds}</h1>
+            <h4>seconds</h4>
+          </div>
         </div>
         )
       }

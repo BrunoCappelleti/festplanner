@@ -10,7 +10,7 @@ async function seed() {
   await Task.destroy({where: {}});
 
   const lollapalooza = await Festival.create({
-    festival_name: 'lollapalooza',
+    festival_name: 'Lollapalooza',
     festival_date: 'Aug 1, 2019 20:30:00',
     festival_simpleDate: 'Aug 1 - 4',
     festival_location: 'CHICAGO',

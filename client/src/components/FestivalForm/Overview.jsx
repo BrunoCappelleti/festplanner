@@ -10,7 +10,7 @@ function Overview(props){
         <p className="festival-paragraph-descr">{festival.festival_description}</p>
         <a className="more-informations" href="https://www.lollapalooza.com/">More information</a>
       </div>
-      <a className="buy-tickets" href="https://www.lollapalooza.com/"> Buy Tickets </a>
+      <a className="buy-tickets" href="https://www.lollapalooza.com/tickets"> Buy Tickets </a>
 
     </div>
   )};
