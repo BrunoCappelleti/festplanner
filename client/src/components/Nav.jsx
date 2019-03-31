@@ -1,11 +1,19 @@
 import React from 'react';
+import { Link, Route } from 'react-router-dom';
+import { withRouter } from 'react-router';
+import ToDoList from './FestivalForm/ToDoList';
 
-function Nav(){
+function Nav(props){
+
   return (
-    <div className='header'>
+    <div className='nav'>
     <img src={"https://i.imgur.com/5tV6auM.png"} alt='logo' className='logo'/>
-    <a className='logout' href=''>To Do List</a>
-    <a className='logout' href=''>Logout</a>
+    <div className='links'>
+    
+    <Link className='todoLink' onClick={props.handleScroll} to='/todo'>To Do List </Link>
+    <Route path='/todo' render={() => <h1 className='todoTiltle'>To Do List</h1>} />
+    <a className='logoutLink' href=''>Logout</a>
+    </div>
     </div>
   )
 }
