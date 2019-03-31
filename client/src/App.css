@@ -1,6 +1,12 @@
 .App{
   height: 100vh;
 }
+
+body {
+  top: auto 0;
+  left: 0;
+}
+
 .cointainer {
   padding: 0 5px;
 }
@@ -67,7 +73,6 @@ overflow-y: scroll;
   width: 100%;
   bottom: 0;
   left: 0;
-  position: fixed;
 }
 
 .connect-with-us {
@@ -107,50 +112,6 @@ overflow-y: scroll;
   color: var(--greyish-brown);
 }
 
-/* MEDIA QUERIES FOR FOOTER */
-@media only screen and (max-width: 600px) {
-  .Footer {
-    height: 95px;
-    padding-bottom: 5px;
-    padding-top: 12px;
-  }
-
-  .icons{
-    width: 30px;
-    height: 30px;
-  }
-
-  .connect-with-us {
-    font-size: 12px;
-    padding: 0;
-  }
-
-  .copyright-FestPlan{
-    font-size: 10px;
-    padding: 0;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  .Footer {
-    height: 90px;
-    padding-bottom: 5px;
-    padding-top: 12px;
-  }
-
-  .icons{
-    width: 22px;
-    height: 22px;
-  }
-  .connect-with-us {
-    font-size: 10px;
-  }
-
-  .copyright-FestPlan{
-    font-size: 8px;
-  }
-}
-/* ********************************* */
 /* REGISTER FORM */
 
 .RegisterForm{
@@ -194,21 +155,47 @@ overflow-y: scroll;
   color: #ffffff;
   margin: 2em;
 }
-/* MEDIA QUERIES FOR REGISTER */
 
-/* **************************** */
-/* LOGIN FORM */
-
-.LoginForm{
-  padding: 4em;
-  margin: 8px;
-  height: 80vh;
-  padding-top: 7em;
-  box-shadow: -4px 4px 8px 0 rgba(101, 101, 101, 0.5);
-  background-color: #f0f0f0;
+.header {
+  display: flex;
 }
 
-.login{
+.logo {
+  margin-left: 2%;
+  margin-top: 1%;
+  padding-bottom: 1%;
+}
+
+.logout {
+  text-decoration: none;
+  color: #4a4a4a;
+  font-size: 14px;
+  margin-top: 4%;
+  margin-left: 65%;
+}
+
+.LoginForm{
+  display: flex;
+  background-image: url('https://i.imgur.com/hjKdXqM.jpg');
+  background-size: cover;
+  padding-bottom: 7%;
+  z-index: -1;
+}
+
+.loginDiv {
+  background-color: #f0f0f0;
+  width: 400px;
+  height: 330px;
+  padding-top: 2%;
+  padding-left: 3%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+  margin-left: 10%;
+  margin-top: 4%;
+  box-shadow: -4px 4px 8px 0 rgba(101, 101, 101, 0.5);
+}
+
+.login {
   font-family: Helvetica;
   font-size: 35px;
   font-weight: bold;
@@ -219,6 +206,70 @@ overflow-y: scroll;
   color: #4a4a4a;
   padding: 0;
   margin-bottom: 0;
+}
+
+.registerIntro{
+  width: 380px;
+  margin-left: 20%;
+}
+
+.introTitle{
+  font-family: Helvetica;
+  font-size: 54px;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.pargIntro {
+  color: #fff;
+  font-size: 26px;
+  font-family: Helvetica;
+  font-weight: 600;
+  padding-top: 0;
+}
+
+.startBtn{
+  width: 180px;
+  height: 40px;
+  padding-left: 15px;
+  margin-left: 20%;
+  background-color: #ff8f07;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: 300;
+  border-radius: 6%;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.aboutTodo {
+  display: flex;
+  background-color: #f5fbff;
+}
+
+.todoimg {
+  margin-left: 15%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+.todoText{
+  margin-left: 15%;
+  margin-top: 10%;
+  width: 350px;
+}
+
+.todoTitle{
+  font-family: Helvetica;
+  color: #ff8f07;
+  font-size: 45px;
+}
+
+.neverforget{
+  font-family: Helvetica;
+  color: #4a4a4a;
+  font-size: 28px;
+  margin-left: 4%
 }
 
 .new-account{
@@ -266,13 +317,148 @@ a{
   color: #ffffff;
 }
 
-/* MEDIA QUERIES FOR LOGIN */
-@media only screen and (max-width: 1481px) {
+/* HOME PGAE */
+@media only screen and (max-width: 750px){
+
+.logout {
+  text-decoration: none;
+  color: #4a4a4a;
+  font-size: 14px;
+  margin-top: 6%;
+  margin-left: 40%;
+}
+
+.LoginForm{
+  background-color: #089DFF;
+  padding-bottom: 7%;
+  padding-top: 3%;
+}
+
+.loginDiv {
+  background-color: #f0f0f0;
+  width: 400px;
+  height: 330px;
+  padding-top: 2%;
+  padding-left: 3%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+  margin-left: 20%;
+  margin-top: 4%;
+  box-shadow: -4px 4px 8px 0 rgba(101, 101, 101, 0.5);
+}
+
+.login {
+  font-family: Helvetica;
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.78;
+  letter-spacing: normal;
+  color: #4a4a4a;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.registerIntro{
+  width: 420px;
+  margin-top: 55%;
+  margin-left: -55%;
+}
+
+.introTitle{
+  font-family: Helvetica;
+  font-size: 40px;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.pargIntro {
+  color: #fff;
+  font-size: 24px;
+  font-family: Helvetica;
+  font-weight: 600;
+  padding-top: 0;
+}
+
+.startBtn{
+  width: 180px;
+  height: 40px;
+  padding-left: 15px;
+  margin-left: 15%;
+  background-color: #ff8f07;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: 300;
+  border-radius: 6%;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.aboutTodo {
+  background-color: #f5fbff;
+  margin-left: 3%;
+  width: 300px;
+}
+
+.todoimg {
+  margin-top: 70%;
+  margin-bottom: 7%;
+  margin-left: 50%;
+}
+
+.todoText{
+  width: 120px;
+  margin-left: 1%;
+}
+
+.todoTitle{
+  font-family: Helvetica;
+  color: #ff8f07;
+  font-size: 34px;
+  margin-left: -350%;
+  margin-top: -10%;
+
+}
+
+.neverforget{
+  font-family: Helvetica;
+  color: #4a4a4a;
+  font-size: 18px;
+  margin-left: -400%;
+  margin-right: 20%;
+
+}
+
+.Footer {
+  height: 95px;
+  padding-bottom: 5px;
+  padding-top: 12px;
+}
+
+.icons{
+  width: 30px;
+  height: 30px;
+}
+
+.connect-with-us {
+  font-size: 12px;
+  padding: 0;
+}
+
+.copyright-FestPlan{
+  font-size: 10px;
+  padding: 0;
+}
+}
+
+/*
+/* @media only screen and (max-width: 1481px) { */
   /* .App{
     background-attachment: fixed;
     background-color: red;
   } */
-  .LoginForm {
+  /* .LoginForm {
     overflow-x: hidden;
     background-attachment: fixed;
     height: 88vh;
@@ -302,13 +488,13 @@ a{
     height: 52px;
     font-size: 32px;
     font-weight: 500;
-  }
-  @media only screen and (max-width: 375px) {
+  } */
+  /* @media only screen and (max-width: 375px) { */
     /* .App{
       background-attachment: fixed;
       background-color: red;
     } */
-    .LoginForm {
+    /* .LoginForm {
       overflow-x: hidden;
       background-attachment: fixed;
       height: 77vh;
@@ -339,14 +525,14 @@ a{
       font-size: 22px;
       font-weight: 300;
     }
-  }
+  } */
 
-  @media only screen and (max-width: 414px) {
+  /* @media only screen and (max-width: 414px) { */
     /* .App{
       background-attachment: fixed;
       background-color: red;
     } */
-    .LoginForm {
+    /* .LoginForm {
       background-attachment: fixed;
       height: 75vh;
       width: 37vw;
@@ -377,7 +563,7 @@ a{
       font-weight: 300;
     }
   }
-}
+} */
 /* **************************** */
 
 /* FESTIVAL PAGE */

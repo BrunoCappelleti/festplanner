@@ -28,6 +28,7 @@ class App extends Component {
     this.handleRegister = this.handleRegister.bind(this)
 }
 
+
   handleChange(e) {
     const { name, value } = e.target
     this.setState(prevState => ({
