@@ -1,22 +1,14 @@
 import React, { Component } from 'react';
 import ToDoListItems from './ToDoListItems';
 import TaskForm from './TaskForm';
+import { getUserTasks, createUserTask, editUserTask, deleteUserTask } from '../../services/api-helper'
 
 class ToDoList extends Component {
   constructor(){
     super();
     this.state = {
-      allTasks: [{ task_title: 'Buy Tickets', task_status: "To-Do", task_date: new Date("Jan 5, 2021 15:27:25"), task_notes: 'heyheyhey', id: 1 },
-        { task_title: 'Get sunglasses', task_status: "To-Do", task_date: new Date(), task_notes: 'heyheyhey', id: 2 },
-        { task_title: 'Buy sunscreen', task_status: "In Progress", task_date: new Date(), task_notes: 'heyheyhey', id: 3 },
-        { task_title: 'Get a super cool hat', task_status: "To-Do", task_date: new Date(), task_notes: 'heyheyhey', id: 4 },
-        { task_title: 'Tell my friends I am going', task_status: "To-Do", task_date: new Date(), task_notes: 'heyheyhey', id: 5 },
-        { task_title: 'Get new memory stick for camera', task_status: "In Progress", task_date: new Date(), task_notes: 'heyheyhey', id: 6 },
-        { task_title: 'Aquire body-glitter', task_status: "Done", task_date: new Date(), task_notes: 'heyheyhey', id: 7 },
-        { task_title: 'Pack water', task_status: "Done", task_date: new Date(), task_notes: 'yessssss', id: 8 },
-        { task_title: 'Dont forget tooth brush', task_status: "Done", task_date: new Date(), task_notes: 'heyheyhey', id: 9 },
-        { task_title: 'Last Task!', task_status: "To-Do", task_date: new Date(), task_notes: 'heyheyhey', id: 10 },
-      ],
+      user: '',
+      allTasks: [],
       renderTasks: [],
       renderTab: 'all',
       showForm: false,
@@ -27,19 +19,25 @@ class ToDoList extends Component {
     this.toggleCreateForm = this.toggleCreateForm.bind(this);
     this.toggleEditForm = this.toggleEditForm.bind(this);
     this.createTask = this.createTask.bind(this);
-    this.updateTask = this.updateTask.bind(this);
+    this.editTask = this.editTask.bind(this);
   }
 
-  componentDidMount(){
-    //this should set the state will all list items
-    this.setState((prevState) => ({
-      renderTasks: prevState.allTasks
-    }));
+  async componentDidMount(){
+    //this should set the state will all list item
+    try {
+      const allTasks = await getUserTasks(1);
+      this.setState({
+        allTasks,
+        renderTasks: allTasks
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   changeTab(category) {
     const allTasks = this.state.allTasks;
-    const focusedTasks = category === 'all' ? allTasks : allTasks.filter( el => el.task_status === category)
+    const focusedTasks = category === 'all' ? allTasks : allTasks.filter( el => el.task_status.toLowerCase() === category.toLowerCase())
     this.setState({
       renderTab: category,
       renderTasks: focusedTasks,
@@ -62,52 +60,71 @@ class ToDoList extends Component {
     }))
   }
 
-  async createTask(newTask) {
-    // const { task_title, task_date, task_notes, task_status } = newTask
-    try {
-      await this.setState( prevState => ({
-        // axios call to create from apiHelper
-        allTasks: [...prevState.allTasks, newTask]
-      }));
-      console.log(newTask);
-      this.changeTab(this.state.renderTab);
-      this.toggleCreateForm();
-    } catch(e) {
-      console.log(e)
+  async createTask(task) {
+    const { task_title, task_date, task_notes, task_status } = task
+    if (task_title && task_date && task_notes && task_status) {
+      try {
+        const createdTask = await createUserTask(1, task);
+        await this.setState( prevState => ({
+          allTasks: [...prevState.allTasks, createdTask]
+        }));
+        this.changeTab(this.state.renderTab);
+        this.toggleCreateForm();
+      } catch(e) {
+        console.log(e)
+      }
+    } else {
+      console.log('please fill out form entirely');
     }
   }
 
-  async updateTask(updatedTask, id) {
-    // const { task_title, task_date, task_notes, task_status } = updatedTask
-    try {
-      console.log('You update', updatedTask);
-      const allTasks = this.state.allTasks
-      const updatedTasks = allTasks.map( el => {
-        if(el.id === id){
-          return updatedTask
+  async editTask(task, id) {
+    const { task_title, task_date, task_notes, task_status } = task
+    if (task_title && task_date && task_notes && task_status) {
+      try {
+        const updatedTask = await editUserTask(1, id, task);
+        if(updatedTask) {
+          const allTasks = this.state.allTasks
+          const updatedTasks = allTasks.map( el => {
+            if(el.id === id){
+              return updatedTask
+            } else {
+              return el
+            }
+          });
+          await this.setState({
+            allTasks: updatedTasks
+          });
+          this.changeTab(this.state.renderTab);
+          this.toggleCreateForm();
         } else {
-          return el
+          console.log('something went wrong');
         }
-      });
-      console.log(updatedTasks)
-      await this.setState({
-        allTasks: updatedTasks
-      });
-      this.changeTab(this.state.renderTab);
-      this.toggleCreateForm();
-    } catch(e) {
-      console.log(e)
+      } catch(e) {
+        console.log(e)
+      }
+    } else {
+      console.log('pleae fill out form entirely');
     }
   }
 
   async deleteTask(id) {
-    //delete from database
-    const allTasks = this.state.allTasks
-    const newTasks = allTasks.filter(el => el.id !== id);
-    await this.setState({
-      allTasks: newTasks
-    });
-    this.changeTab(this.state.renderTab);
+    try {
+      const resp = await deleteUserTask(1, id);
+      console.log(resp);
+      if(resp) {
+        const allTasks = this.state.allTasks
+        const newTasks = allTasks.filter(el => el.id !== id);
+        await this.setState({
+          allTasks: newTasks
+        });
+        this.changeTab(this.state.renderTab);
+      } else {
+        console.log('something went wrong');
+      }
+    } catch(e) {
+      console.log(e);
+    }
   }
 
   render() {
@@ -120,7 +137,7 @@ class ToDoList extends Component {
               showForm={this.toggleCreateForm}
               focusedTask={this.state.focusedTask}
               createTask={this.createTask}
-              updateTask={this.updateTask} />}
+              editTask={this.editTask} />}
           {!this.state.showForm && <button className="make-new-task" onClick={this.toggleCreateForm}>Add new task</button>}
         </div>
         <div className="to-do-tabs">
@@ -132,21 +149,21 @@ class ToDoList extends Component {
             }}>ALL
           </button>
           <button
-            className={this.state.renderTab === "to-do" ? "to-do-tabs-button-focused" : "to-do-tabs-button"}
+            className={this.state.renderTab === "To-Do" ? "to-do-tabs-button-focused" : "to-do-tabs-button"}
             onClick={(ev) => {
               ev.preventDefault();
               this.changeTab('To-Do');
             }}>TO DO
           </button>
           <button
-            className={this.state.renderTab === "in-progress" ? "to-do-tabs-button-focused" : "to-do-tabs-button"}
+            className={this.state.renderTab === "In Progress" ? "to-do-tabs-button-focused" : "to-do-tabs-button"}
             onClick={(ev) => {
               ev.preventDefault();
-              this.changeTab('In-Progress');
+              this.changeTab('In Progress');
             }}>IN PROGRESS
           </button>
           <button
-            className={this.state.renderTab === "done" ? "to-do-tabs-button-focused" : "to-do-tabs-button"}
+            className={this.state.renderTab === "Done" ? "to-do-tabs-button-focused" : "to-do-tabs-button"}
             onClick={(ev) => {
               ev.preventDefault();
               this.changeTab('Done');

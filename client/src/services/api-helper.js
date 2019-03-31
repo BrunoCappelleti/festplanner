@@ -2,59 +2,83 @@ import axios from 'axios';
 
 const BASE_URL = 'http://localhost:5000'
 
-
-const loginUser = async (data) => {
-  const { user_email, password } = data;
-  const resp = await axios.post(`${BASE_URL}/users/login`, {
-    user_email,
-    password
-  });
-  console.log(resp.data);
-  return resp.data;
+const registerUser = async (data) => {
+  try {
+    const loginData = await axios.post(`${BASE_URL}/festivals/1/users`, data);
+    // need to fix this to set local storage and create api
+    return loginData.data
+  } catch (e) {
+    console.log(e);
+  }
 }
 
-const registerUser = async (data) => {
-  const { user_first_name, user_last_name, user_email, password } = data;
-  const resp = await axios.post(`${BASE_URL}/festivals/1/users`, {
-    user_first_name,
-    user_last_name,
-    user_email,
-    password
-  });
-  console.log(resp.data);
-  return resp.data
+const loginUser = async (data) => {
+  try {
+    const loginData = await axios.post(`${BASE_URL}/festivals/1/users/login`, data);
+    return loginData.data;
+  } catch (e) {
+    console.log(e);
+    return false
+  }
 }
 
 const getFestival = async () => {
-  const resp = await axios.get(`${BASE_URL}/festivals`)
-  console.log(resp.data.festivals[0].festival_date);
-  return resp.data.festivals[0];
+  try {
+    const resp = await axios.get(`${BASE_URL}/festivals/1`)
+    return resp.data;
+  } catch(e) {
+    console.log(e);
+    return false
   }
-
-const getTasks = async () => {
-  const resp = await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
-  return resp.data;
-  }
-
-const delTask = async (id) => {
-  const resp = await axios.delete(`${BASE_URL}/${id}`)
-  return resp.data
 }
 
-const postTask = async (title) => {
-  const resp = await axios.post(`${BASE_URL}`, {
-    title,
-    completed: false
-  })
-  return resp.data
+const getUserTasks = async (userId) => {
+  try {
+    const resp = await axios.get(`${BASE_URL}/festivals/1/users/${userId}/tasks`)
+    return resp.data;
+  } catch (e) {
+    console.log(e);
+    return false
+  }
+}
+
+const createUserTask = async (userId, task) => {
+  try {
+    const resp = await axios.post(`${BASE_URL}/festivals/1/users/${userId}/tasks`, task)
+    return resp.data
+  } catch(e) {
+    console.log(e);
+    return false;
+  }
+}
+
+const editUserTask = async (userId, taskId, task) => {
+  try {
+    const resp = await axios.put(`${BASE_URL}/festivals/1/users/${userId}/tasks/${taskId}`, task);
+    return resp.data
+  } catch(e) {
+    console.log(e);
+    return false;
+  }
+}
+
+const deleteUserTask = async (userId, taskId) => {
+  try {
+    const resp = await axios.delete(`${BASE_URL}/festivals/1/users/${userId}/tasks/${taskId}`)
+    return resp.data.message
+  } catch(e) {
+    console.log(e);
+    return false
+  }
 }
 
 
 export {
-  getTasks,
-  delTask,
-  postTask,
-  loginUser,
   registerUser,
-  getFestival
+  loginUser,
+  getFestival,
+  getUserTasks,
+  createUserTask,
+  editUserTask,
+  deleteUserTask,
 }

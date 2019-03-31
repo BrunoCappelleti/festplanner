@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Counter from './Counter';
+import Counter from './FestivalForm/Counter';
 import ToDoList from './FestivalForm/ToDoList'
 import Overview from './FestivalForm/Overview';
 import Amenities from './FestivalForm/Amenities';
@@ -32,11 +32,14 @@ class FestivalPage extends Component {
   async componentDidMount(){
     try {
       const resp = await getFestival()
-      console.log(resp);
-      this.setState({
-        festival: resp,
-        loading: true,
-      });
+      if(resp) {
+        this.setState({
+          festival: resp,
+          loading: true,
+        });
+      } else {
+        console.log(`That festival doesn't exist`);
+      }
     } catch(e) {
       console.log(e);
     }

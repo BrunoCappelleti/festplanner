@@ -3,8 +3,8 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize({
   database: 'festplanner_db',
   dialect: 'postgres',
-  // username: `sequelize`,
-  // password: `password`,
+  username: `sequelize`,
+  password: `password`,
   define: {
     underscored: true,
     }
@@ -33,7 +33,7 @@ const User = sequelize.define('user', {
 
 const Task = sequelize.define('task', {
   task_title: Sequelize.STRING,
-  task_date: Sequelize.INTEGER,
+  task_date: Sequelize.DATE,
   task_notes: Sequelize.TEXT,
   task_status:{
     type: Sequelize.STRING,

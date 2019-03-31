@@ -6,7 +6,11 @@ const taskRouter = Router();
 taskRouter.get('/', async (req, res) => {
   try{
     const user = await User.findByPk(res.locals.userId);
-    const tasks = await user.getTasks();
+    const tasks = await user.getTasks({
+      order: [
+        ['id']
+      ]
+    });
     res.json(tasks)
   } catch(e){
     console.error(e.message);
@@ -51,7 +55,7 @@ taskRouter.put('/:id', async (req, res) => {
     const task = await Task.findByPk(id);
     if (task !== null) {
       const updatedTask = await task.update(req.body);
-      res.json({ update: updatedTask });
+      res.json(updatedTask);
     }
   } catch(e){
       console.error(e.message);
@@ -67,7 +71,7 @@ taskRouter.delete('/:id', async (req, res) => {
         id
       }
     });
-    res.json({ messge: `Deleted task id ${id}`,  response: resp });
+    res.json({ message: `Deleted task id ${id}`,  response: resp });
   } catch (e) {
     console.log(e);
     res.status(500).send('Task not found');

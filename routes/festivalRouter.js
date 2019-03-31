@@ -8,10 +8,19 @@ festivalRouter.get('/', async (req, res) => {
   try{
     const festivals = await Festival.findAll();
     res.json({festivals})
-  } catch(e){
-  console.error(e.message);
+  } catch(e) {
+    res.status(500).send(e.message);
   }
 });
+
+festivalRouter.get('/:id', async (req, res) => {
+  try {
+    const festival = await Festival.findByPk(req.params.id);
+    res.json(festival);
+  } catch(e) {
+    res.status(404).send(e.message);
+  }
+})
 
 festivalRouter.use('/:id/users', (req, res, next) => {
   res.locals.fesId = req.params.id;
