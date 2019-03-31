@@ -15,7 +15,7 @@ const loginUser = async (data) => {
 
 const registerUser = async (data) => {
   const { user_first_name, user_last_name, user_email, password } = data;
-  const resp = await axios.post(`${BASE_URL}/users`, {
+  const resp = await axios.post(`${BASE_URL}/festivals/1/users`, {
     user_first_name,
     user_last_name,
     user_email,
