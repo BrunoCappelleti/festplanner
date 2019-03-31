@@ -114,7 +114,7 @@ class ToDoList extends Component {
     return (
       <div className="to-do-list">
         <div className="todo-newtaskbtt">
-          <h1>To Do List</h1>
+          <h1 className='todoTiltle'>To Do List</h1>
           {this.state.showForm &&
             <TaskForm
               showForm={this.toggleCreateForm}

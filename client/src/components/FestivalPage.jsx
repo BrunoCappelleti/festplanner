@@ -10,12 +10,24 @@ import { getFestival } from '../services/api-helper';
 class FestivalPage extends Component {
   constructor() {
     super();
+    this.main = React.createRef();
     this.state = {
       user: '',
       festival: '',
       loading: false
     }
+    this.handleScroll = this.handleScroll.bind(this)
   }
+
+  handleScroll = e => {
+   e.preventDefault();
+   const main = this.main.current;
+   window.scrollTo({
+     top: main.offsetTop,
+     left: 0,
+     behavior: "instant"
+   });
+ };
 
   async componentDidMount(){
     try {
@@ -34,7 +46,7 @@ class FestivalPage extends Component {
     const { festival } = this.state;
     return (
       <div>
-      <Nav />
+      <Nav handleScroll={this.handleScroll}/>
       <div className="App FestivalPage">
         <div className="hero">
           <div className="header-festival-page">
