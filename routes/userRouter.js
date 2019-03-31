@@ -34,7 +34,6 @@ userRouter.get('/', async (req, res) => {
 userRouter.post('/login', async (req, res) => {
   try {
     const { user_email, password } = req.body;
-    console.log(req.body);
     const user = await User.findOne({
       where: {
         user_email,
@@ -42,7 +41,7 @@ userRouter.post('/login', async (req, res) => {
     });
     if (await compare(password, user.password_digest)) {
       const loginData = buildAuthResponse(user);
-      res.json({ loginData });
+      res.json(loginData);
     } else {
       res.status(401).send('Invalid Creds. BE GONE!!')
     }

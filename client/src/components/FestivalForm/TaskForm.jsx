@@ -21,12 +21,10 @@ class TaskForm extends Component {
   componentDidMount() {
     const focusedTask = this.props.focusedTask
     if(focusedTask) {
-      console.log(focusedTask)
       this.setState({
         creating: false,
         taskForm: {
           task_title: focusedTask.task_title,
-          task_date: focusedTask.task_date,
           task_notes: focusedTask.task_notes,
           task_status: focusedTask.task_status,
         }
@@ -56,14 +54,14 @@ class TaskForm extends Component {
   render() {
     const {task_title, task_date, task_notes, task_status} = this.state.taskForm
     const { creating, taskForm, } = this.state
-    const { createTask, updateTask, focusedTask } = this.props
+    const { createTask, editTask, focusedTask } = this.props
     return (
       <div>
         <button onClick={this.props.showForm}>Back</button>
         <h1>{creating ? 'Add a new Task' : 'Update your Task'}</h1>
         <form onSubmit={(ev) => {
           ev.preventDefault();
-          creating ? createTask(taskForm) : updateTask(taskForm, focusedTask.id)
+          creating ? createTask(taskForm) : editTask(taskForm, focusedTask.id)
         }}>
           <label>Task Title: </label>
           <input

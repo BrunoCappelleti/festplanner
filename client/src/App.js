@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import './App.css';
 import FestivalPage from './components/FestivalPage';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
-import Footer from './components/FestivalForm/Footer';
+import Footer from './components/Footer';
 import { registerUser, loginUser } from './services/api-helper';
 
 class App extends Component {
@@ -13,21 +13,24 @@ class App extends Component {
     super()
 
     this.state = {
-      focuseTab: {
-        all:[]
-      },
-    formData: {
-      user_first_name: '',
-      user_last_name: '',
-      user_email: '',
-      password: ''
+      user: '',
+      token: '',
+      formData: {
+        user_first_name: '',
+        user_last_name: '',
+        user_email: '',
+        password: ''
+      }
     }
-  }
     this.handleLogin = this.handleLogin.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleRegister = this.handleRegister.bind(this)
-}
+  }
 
+  componentDidMounter() {
+    //needs to check for token existance and instatiate user and token if so
+    //possibly route directly to festival page if you're already logged in
+  }
 
   handleChange(e) {
     const { name, value } = e.target
@@ -39,33 +42,57 @@ class App extends Component {
     }));
   }
 
-  async handleRegister(e) {
-    e.preventDefault();
-    const data = await registerUser(this.state.formData)
-    console.log(data);
-    this.setState({
-      formData: {
-        user_first_name: '',
-        user_last_name: '',
-        user_email: '',
-        password: ''
+  async handleRegister(ev) {
+    ev.preventDefault();
+    const { user_first_name, user_last_name, user_email, password } = this.state.formData
+    if ( user_first_name && user_last_name && user_email && password ) {
+      try {
+        const data = await registerUser(this.state.formData);
+        console.log(data);
+        this.setState({
+          formData: {
+            user_first_name: '',
+            user_last_name: '',
+            user_email: '',
+            password: ''
+          }
+        })
+        this.props.history.push(`/festival`);
+      } catch (e) {
+        console.log(e, 'Something went wrong...');
       }
-    })
-    console.log("hi");
-    this.props.history.push(`/festival`);
+    } else {
+      console.log('please fill out form');
+      // logic works to not allow partially filled out forms to dispatch server call
+      // need to know conditional render "please fill out form" as html if failure
+    }
   };
 
-  async handleLogin(e) {
-    e.preventDefault();
-    const data = await loginUser(this.state.formData)
-    console.log(data);
-    this.setState({
-      formData: {
-        user_email: '',
-        password:''
+  async handleLogin(ev) {
+    ev.preventDefault();
+    const { user_email, password } = this.state.formData;
+    if (user_email && password) {
+      try {
+        const resp = await loginUser(this.state.formData)
+        if(resp) {
+          console.log(resp);
+          this.setState({
+            formData: {
+              user_email: '',
+              password:''
+            }
+          })
+          this.props.history.push(`/festival`);
+        } else {
+          console.log('wrong username or password');
+          // this needs user prompt so they can understand why login failed
+        }
+      } catch(e) {
+        console.log(e, 'Someting went wrong...');
       }
-    })
-    this.props.history.push(`/festival`);
+    } else {
+      console.log('please put both a username and password');
+    };
   };
 
   render() {
