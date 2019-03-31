@@ -48,7 +48,8 @@ overflow-y: scroll;
 
 .to-do-item {
   display: flex;
-  justify-content: space-between;
+  padding: 10em;
+  justify-content: space-around;
 }
 
 .task-update-delete {
@@ -61,11 +62,6 @@ overflow-y: scroll;
   margin: 0 5px;
 }
 
-.task-update:hover, .task-delete:hover {
-  background: black;
-  color: white;
-}
-
 /*  FOOTER */
 
 .Footer{
@@ -75,6 +71,8 @@ overflow-y: scroll;
   padding-top: 30px;
   text-align: center;
   width: 100%;
+  bottom: 0;
+  left: 0;
 }
 
 .connect-with-us {
@@ -85,7 +83,7 @@ overflow-y: scroll;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: var(--greyish-brown);
+  color: #4a4a4a;
   margin: 10px;
 }
 
@@ -464,7 +462,7 @@ a{
     overflow-x: hidden;
     background-attachment: fixed;
     height: 88vh;
-    width: 65vh;
+    width: 65vw;
   }
   .login{
     font-size: 105px;
@@ -500,7 +498,7 @@ a{
       overflow-x: hidden;
       background-attachment: fixed;
       height: 77vh;
-      width: 30vh;
+      width: 30vw;
     }
     .login{
       font-size: 30px;
@@ -537,7 +535,7 @@ a{
     /* .LoginForm {
       background-attachment: fixed;
       height: 75vh;
-      width: 37vh;
+      width: 37vw;
     }
     .login{
       font-size: 30px;
@@ -567,3 +565,271 @@ a{
   }
 } */
 /* **************************** */
+
+/* FESTIVAL PAGE */
+/* .FestivalPage{
+  height: 100vh;
+} */
+
+.header-festival-page{
+  position: relative;
+}
+
+.hero-img-div{
+  width: 100vw;
+  height: 55em;
+  background-color: rgba(0, 0, 0, .6);
+  position: absolute;
+}
+
+.hero-img{
+  width: 100vw;
+  height: 55em;
+}
+
+.text-hero-festival-page{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.Counter{
+  display: flex;
+  justify-content: center;
+}
+
+.each-el-counter{
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px;
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.festival-name{
+  font-family: Helvetica;
+  font-size: 7em;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+.festival-location{
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 2em;
+  font-weight: 300;
+}
+/* OVERVIEW */
+
+.Overview{
+  padding-left: 19em;
+  padding-top: 2em;
+  margin: 0;
+  height: 400px;
+}
+
+.overview-title{
+  font-family: Helvetica;
+  font-size: 45px;
+  color: #4a4a4a;
+}
+
+.festival-description{
+  width: 25em;
+  text-align: justify;
+  font-family: Helvetica;
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: #4a4a4a;
+}
+
+.festival-paragraph-descr{
+  margin-bottom: 0;
+}
+
+.Map{
+  padding-top: 2em;
+  padding-left: 10em;
+  margin-bottom: 0;
+}
+
+.location-map{
+  font-family: Helvetica;
+  font-size: 28px;
+  color: #4a4a4a;
+}
+
+.Overview-Map{
+  display: flex;
+  padding-left: 60px;
+  height: 358px;
+}
+
+.more-informations{
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+}
+
+.buy-tickets{
+  text-align: center;
+  display: block;
+  width: 180px;
+  height: 14px;
+  padding: 10px;
+  padding-bottom: 20px;
+  margin-top: 15px;
+  border: 2px solid #ff8f07;
+  border-radius: 5px;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff8f07;
+}
+
+/* AMENITIES */
+
+.Amenities{
+    color: #4a4a4a;
+  margin-top: 2em;
+  padding: 10px;
+  width: 900px;
+  height: 600px;
+}
+.amenities-content{
+  padding-left: 17em;
+  margin: 2em;
+  display: flex;
+  height: 8em;
+  width: 35em;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+.amenities-title{
+  padding-left: 11em;
+  font-family: Helvetica;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+
+.icon-amenities{
+  margin: 2em;
+  margin-top: 0;
+  padding: 18px;
+  background-color: #0a9dff;
+  border-radius: 5em;
+  width: 59px;
+  height: 62px;
+}
+
+.x{
+  width: 140px;
+  height: 68px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: 300;
+  color: #4a4a4a;
+}
+
+.each-icon-content{
+  margin: 0;
+  padding: 0;
+}
+
+/* TO-DO LIST */
+.to-do-list{
+  display: block;
+  padding: 2em 15em;
+  float: left;
+  width: 756px;
+  height: 29em;
+  font-family: Helvetica;
+  font-size: 22px;
+  font-weight: 300;
+  color: #4a4a4a;
+}
+
+.to-do-item{
+  padding: 10px;
+}
+
+.to-do-items{
+  box-shadow: 0 2px 6px 0 rgba(128, 128, 128, 0.5);
+  border: solid 1px #979797;
+  background-color: #ffffff;
+  padding-left: 1em;
+}
+
+.task-title{
+  width: 100px;
+}
+
+.edit-button{
+  border: 2px solid #4a4a4a;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-button{
+  border: 1px solid #979797;
+  padding: 4px 10px;
+  border-radius: 4em;
+  background-color: #979797;
+  color: #d8d8d8;
+  font-size: 22px;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.all{
+  font-family: Helvetica;
+  font-size: 16px;
+}
+
+.to-do-tabs-button{
+  width: 83px;
+  height: 55px;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #e9e9e9;
+  border: 1px solid #e9e9e9;
+  color: #0a9dff;
+}
+
+.to-do-tabs-button-focused{
+  background-color: white;
+  font-family: Helvetica;
+  font-size: 16px;
+}
+
+.todo-newtaskbtt{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.make-new-task{
+  font-family: Helvetica;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 2px solid #ff8f07;
+  font-weight: bold;
+  width: 300px;
+  height: 50px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: #ff8f07;
+}

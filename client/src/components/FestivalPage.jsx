@@ -32,22 +32,33 @@ class FestivalPage extends Component {
   render() {
     const { festival } = this.state;
     return (
-      <div className="App">
+      <div className="App FestivalPage">
         <div className="hero">
-          <img src={festival.festival_img} alt=''/>
-          <h1>{festival.festival_name}</h1>
-          <h3>{festival.festival_location} • {festival.festival_simpleDate}</h3>
-          {!this.state.loading && <div>Please hold...</div>}
-          {this.state.loading && <Counter
-            date={festival.festival_date}
-             />}
+          <div className="header-festival-page">
+            <div className="hero-img-div">
+            </div>
+            
+              <img className="hero-img" src={festival.festival_img} alt=''/>
+            <div className="text-hero-festival-page">
+              <h1 className="festival-name">{festival.festival_name}</h1>
+              <h3 className="festival-location">{festival.festival_location} • {festival.festival_simpleDate}</h3>
+              {!this.state.loading && <div>Please hold...</div>}
+              {this.state.loading && <Counter
+                date={festival.festival_date}
+                 />}
+            </div>
+          </div>
         </div>
         <div className="main">
+        <div className="Overview-Map">
+
         <Overview festival={festival}/>
+          {!this.state.loading && <div>Please hold...</div>}
+          {this.state.loading && <Map
+          festival={festival}/>}
+        </div>
         <Amenities />
-        {!this.state.loading && <div>Please hold...</div>}
-        {this.state.loading && <Map
-        festival={festival}/>}
+
         <ToDoList />
         </div>
 
