@@ -1,7 +1,11 @@
 import React from 'react';
+import Header from './Header';
 
 const RegisterForm = (props) => {
   return(
+
+    <div>
+    <Header />
     <div className="RegisterForm">
       <h1 className="create-new-account">Create new account</h1>
 
@@ -64,6 +68,7 @@ const RegisterForm = (props) => {
 
        </form>
     </div>
+  </div>
   )
 };
 

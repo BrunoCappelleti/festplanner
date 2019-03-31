@@ -116,10 +116,10 @@ overflow-y: scroll;
 
 .RegisterForm{
   text-align: center;
-  margin: 8px;
+  /* margin: 8px; */
   height: 86vh;
   padding-top: 7em;
-  box-shadow: -4px 4px 8px 0 rgba(101, 101, 101, 0.5);
+  /* box-shadow: -4px 4px 8px 0 rgba(101, 101, 101, 0.5); */
   background-color: #f0f0f0;
 }
 
