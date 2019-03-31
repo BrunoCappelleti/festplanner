@@ -4,6 +4,7 @@ import ToDoList from './FestivalForm/ToDoList'
 import Overview from './FestivalForm/Overview';
 import Amenities from './FestivalForm/Amenities';
 import Map from './FestivalForm/Map';
+import Nav from './Nav';
 import { getFestival } from '../services/api-helper';
 
 class FestivalPage extends Component {
@@ -32,12 +33,14 @@ class FestivalPage extends Component {
   render() {
     const { festival } = this.state;
     return (
+      <div>
+      <Nav />
       <div className="App FestivalPage">
         <div className="hero">
           <div className="header-festival-page">
             <div className="hero-img-div">
             </div>
-            
+
               <img className="hero-img" src={festival.festival_img} alt=''/>
             <div className="text-hero-festival-page">
               <h1 className="festival-name">{festival.festival_name}</h1>
@@ -62,6 +65,7 @@ class FestivalPage extends Component {
         <ToDoList />
         </div>
 
+      </div>
       </div>
     );
   }
