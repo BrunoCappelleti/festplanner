@@ -845,7 +845,6 @@ a{
 .links {
     margin-top: 4%;
     margin-left: 60%;
-
 }
 
 .todoLink {
@@ -868,4 +867,22 @@ a{
 
 .logoutLink:hover{
   color:#ff8f07;
+}
+
+/* HOME PGAE */
+@media only screen and (max-width: 750px){
+
+  .links {
+      margin-top: 6%;
+      margin-left: 30%;
+  }
+
+  .todoLink {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-size: 14px;
+    padding-right: 5%;
+  }
+
+
 }
