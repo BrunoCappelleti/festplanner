@@ -141,7 +141,7 @@ class App extends Component {
       )} />
       <Route exact path='/festival' component={FestivalPage}
         handleLogout={this.handleLogout} />
-      <Footer />
+      
       </div>
     );
   }
