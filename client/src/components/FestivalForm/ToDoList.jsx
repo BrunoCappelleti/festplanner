@@ -93,7 +93,8 @@ class ToDoList extends Component {
             }
           });
           await this.setState({
-            allTasks: updatedTasks
+            allTasks: updatedTasks,
+            focusedTask: '',
           });
           this.changeTab(this.state.renderTab);
           this.toggleCreateForm();
