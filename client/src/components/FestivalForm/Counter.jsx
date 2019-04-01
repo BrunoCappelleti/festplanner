@@ -30,21 +30,21 @@ class Counter extends Component {
       render() {
         return (
         <div className="Counter">
-          <div className="each-el-counter">
+          <div className="counter-days">
             <h1>{this.state.days} </h1>
-            <h4>days</h4>
+            <h4 className='days'>days</h4>
           </div>
-           <div className="each-el-counter">
+           <div className="counter-hours">
             <h1>{this.state.hours}</h1>
-            <h4>hours</h4>
+            <h4 className='hours'>hours</h4>
           </div>
-          <div className="each-el-counter">
+          <div className="counter-min">
             <h1>{this.state.minutes}</h1>
-            <h4>minutes</h4>
+            <h4 className='min'>minutes</h4>
           </div>
-          <div className="each-el-counter">
+          <div className="counter-sec">
             <h1>{this.state.seconds}</h1>
-            <h4>seconds</h4>
+            <h4 className='sec'>seconds</h4>
           </div>
         </div>
         )

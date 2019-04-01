@@ -148,7 +148,6 @@ class App extends Component {
           handleLogout={this.handleLogout}
           user={this.state.user} />
         )} />
-      <Footer />
       </div>
     );
   }
