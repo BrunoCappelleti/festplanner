@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import Header from './Header';
+import Footer from './Footer';
 
 class LoginForm extends Component {
 
@@ -60,7 +61,7 @@ class LoginForm extends Component {
       </div>
       </div>
 
-
+      <Footer />
     </div>
     )
   }

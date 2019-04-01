@@ -617,6 +617,7 @@ flex-direction: column;
   margin-top: 0;
   margin-bottom: 0;
   padding-bottom: 0;
+  padding-right: 10px;
 }
 
 .days{
@@ -646,25 +647,26 @@ flex-direction: column;
 
 .counter-min {
   display: flex;
-flex-direction: column;
+  flex-direction: column;
   padding: 0px 0px;
   font-size: 40px;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 70px;
+
 }
 
 .min {
   margin-top: -32%;
-  margin-left: -30%;
+  margin-left: -27%;
   font-size: 60px;
   font-weight: 300;
 }
 
 .sec {
   margin-top: -30%;
-  margin-left: -30%;
+  margin-left: -27%;
   font-size: 60px;
   font-weight: 300;
 }
@@ -917,6 +919,7 @@ flex-direction: column;
 
 .footer2 {
   height: 115px;
+  margin-top: 150%;
   /* background-color: #dadada; */
   padding-bottom: 30px;
   padding-top: 30px;

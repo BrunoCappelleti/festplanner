@@ -69,9 +69,9 @@ class FestivalPage extends Component {
 
         <ToDoList />
         </div>
-        <div className='footer2'>
-        <Footer />
-        </div>
+      </div>
+      <div className='footer2'>
+      <Footer />
       </div>
       </div>
 
