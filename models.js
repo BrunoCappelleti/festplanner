@@ -13,14 +13,13 @@ if (process.env.DATABASE_URL) {
   });
 } else {
   sequelize = new Sequelize({
-    database: `p3_music_db`,
-    dialect: `postgresql`,
-    username: 'sequelize',
-    password: 'password',
-    operatorsAliases: false,
+    database: 'festplanner_db',
+    dialect: 'postgres',
+    username: `sequelize`,
+    password: `password`,
     define: {
-      underscored: true
-    }
+      underscored: true,
+      }
   });
 };
 
