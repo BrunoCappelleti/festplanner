@@ -43,7 +43,7 @@ body {
 
 .to-do-items {
 min-height: 450px;
-max-height: 800px;
+max-height: 700px;
 overflow-y: scroll;
 }
 
@@ -922,7 +922,7 @@ flex-direction: column;
 
 .footer2 {
   height: 115px;
-  margin-top: 100%;
+  margin-top: 105%;
   /* background-color: #dadada; */
   padding-bottom: 30px;
   padding-top: 30px;
