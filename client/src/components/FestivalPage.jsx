@@ -5,6 +5,7 @@ import Overview from './FestivalForm/Overview';
 import Amenities from './FestivalForm/Amenities';
 import Map from './FestivalForm/Map';
 import Nav from './Nav';
+import Footer from './Footer';
 import { getFestival } from '../services/api-helper';
 
 class FestivalPage extends Component {
@@ -45,7 +46,7 @@ class FestivalPage extends Component {
             <div className="hero-img-div">
             </div>
 
-            <img className="hero-img" src={festival.festival_img} alt=''/>
+            <img className="hero-img" src={'https://i.imgur.com/K5sYysi.jpg'} alt=''/>
             <div className="text-hero-festival-page">
               <h1 className="festival-name">{festival.festival_name}</h1>
               <h3 className="festival-location">{festival.festival_location} • {festival.festival_simpleDate}</h3>
@@ -68,9 +69,12 @@ class FestivalPage extends Component {
 
         <ToDoList />
         </div>
+        <div className='footer2'>
+        <Footer />
+        </div>
+      </div>
+      </div>
 
-      </div>
-      </div>
     );
   }
 }
