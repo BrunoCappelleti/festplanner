@@ -46,6 +46,7 @@ class App extends Component {
       password: ''
     }
   })
+  this.props.history.push('/');
   }
 
   handleChange(e) {
