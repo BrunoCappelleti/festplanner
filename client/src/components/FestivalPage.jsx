@@ -8,26 +8,15 @@ import Nav from './Nav';
 import { getFestival } from '../services/api-helper';
 
 class FestivalPage extends Component {
-  constructor() {
-    super();
-    this.main = React.createRef();
+  constructor(props) {
+    super(props);
+
     this.state = {
       user: '',
       festival: '',
       loading: false
     }
-    this.handleScroll = this.handleScroll.bind(this)
   }
-
-  handleScroll = e => {
-   e.preventDefault();
-   const main = this.main.current;
-   window.scrollTo({
-     top: main.offsetTop,
-     left: 0,
-     behavior: "instant"
-   });
- };
 
   async componentDidMount(){
     try {
@@ -49,14 +38,14 @@ class FestivalPage extends Component {
     const { festival } = this.state;
     return (
       <div>
-      <Nav handleScroll={this.handleScroll}/>
+      <Nav handleLogout={this.props.handleLogout}/>
       <div className="App FestivalPage">
         <div className="hero">
           <div className="header-festival-page">
             <div className="hero-img-div">
             </div>
 
-              <img className="hero-img" src={festival.festival_img} alt=''/>
+            <img className="hero-img" src={festival.festival_img} alt=''/>
             <div className="text-hero-festival-page">
               <h1 className="festival-name">{festival.festival_name}</h1>
               <h3 className="festival-location">{festival.festival_location} • {festival.festival_simpleDate}</h3>
