@@ -2,10 +2,22 @@ import axios from 'axios';
 
 const BASE_URL = 'http://localhost:5000'
 
+const api = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    authorization: `Bearer ${localStorage.getItem('FestPlannerToken')}`
+  }
+});
+
+const updateToken = (token) => {
+  localStorage.setItem('beatHostRToken', token);
+  api.defaults.headers.common.authorization = `Bearer ${token}`
+}
+
 const registerUser = async (data) => {
   try {
-    const loginData = await axios.post(`${BASE_URL}/festivals/1/users`, data);
-    // need to fix this to set local storage and create api
+    const loginData = await api.post(`${BASE_URL}/festivals/1/users`, data);
+    updateToken(loginData.data.token);
     return loginData.data
   } catch (e) {
     console.log(e);
@@ -14,7 +26,8 @@ const registerUser = async (data) => {
 
 const loginUser = async (data) => {
   try {
-    const loginData = await axios.post(`${BASE_URL}/festivals/1/users/login`, data);
+    const loginData = await api.post(`${BASE_URL}/festivals/1/users/login`, data);
+    updateToken(loginData.data.token);
     return loginData.data;
   } catch (e) {
     console.log(e);
@@ -24,7 +37,7 @@ const loginUser = async (data) => {
 
 const getFestival = async () => {
   try {
-    const resp = await axios.get(`${BASE_URL}/festivals/1`)
+    const resp = await api.get(`${BASE_URL}/festivals/1`)
     return resp.data;
   } catch(e) {
     console.log(e);
@@ -34,7 +47,7 @@ const getFestival = async () => {
 
 const getUserTasks = async (userId) => {
   try {
-    const resp = await axios.get(`${BASE_URL}/festivals/1/users/${userId}/tasks`)
+    const resp = await api.get(`${BASE_URL}/festivals/1/users/${userId}/tasks`)
     return resp.data;
   } catch (e) {
     console.log(e);
@@ -44,7 +57,7 @@ const getUserTasks = async (userId) => {
 
 const createUserTask = async (userId, task) => {
   try {
-    const resp = await axios.post(`${BASE_URL}/festivals/1/users/${userId}/tasks`, task)
+    const resp = await api.post(`${BASE_URL}/festivals/1/users/${userId}/tasks`, task)
     return resp.data
   } catch(e) {
     console.log(e);
@@ -54,7 +67,7 @@ const createUserTask = async (userId, task) => {
 
 const editUserTask = async (userId, taskId, task) => {
   try {
-    const resp = await axios.put(`${BASE_URL}/festivals/1/users/${userId}/tasks/${taskId}`, task);
+    const resp = await api.put(`${BASE_URL}/festivals/1/users/${userId}/tasks/${taskId}`, task);
     return resp.data
   } catch(e) {
     console.log(e);
@@ -64,7 +77,7 @@ const editUserTask = async (userId, taskId, task) => {
 
 const deleteUserTask = async (userId, taskId) => {
   try {
-    const resp = await axios.delete(`${BASE_URL}/festivals/1/users/${userId}/tasks/${taskId}`)
+    const resp = await api.delete(`${BASE_URL}/festivals/1/users/${userId}/tasks/${taskId}`)
     return resp.data.message
   } catch(e) {
     console.log(e);

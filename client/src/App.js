@@ -66,6 +66,8 @@ class App extends Component {
         const data = await registerUser(this.state.formData);
         console.log(data);
         this.setState({
+          user: data.user,
+          token: data.token,
           formData: {
             user_first_name: '',
             user_last_name: '',
@@ -93,6 +95,8 @@ class App extends Component {
         if(resp) {
           console.log(resp);
           this.setState({
+            user: resp.user,
+            token: resp.token,
             formData: {
               user_email: '',
               password:''
@@ -139,9 +143,11 @@ class App extends Component {
           password={this.state.formData.password} />
         </div>
       )} />
-      <Route exact path='/festival' component={FestivalPage}
-        handleLogout={this.handleLogout} />
-      
+      <Route exact path='/festival' component={(props) => (
+        <FestivalPage
+          handleLogout={this.handleLogout}
+          user={this.state.user} />
+        )} />
       </div>
     );
   }
