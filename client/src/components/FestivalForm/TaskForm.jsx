@@ -29,6 +29,10 @@ class TaskForm extends Component {
           task_status: focusedTask.task_status,
         }
       })
+    } else {
+      this.setState({
+        creating: true,
+      })
     }
   }
 
