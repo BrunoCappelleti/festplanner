@@ -38,11 +38,11 @@ body {
 
 .to-do-list {
   width: 40vw;
-  margin: 0 auto 300px auto;
+  margin: 0 auto 100px auto;
 }
 
 .to-do-items {
-max-height: 40vh;
+min-height: 400px;
 overflow-y: scroll;
 }
 
