@@ -6,6 +6,7 @@ import FestivalPage from './components/FestivalPage';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import Footer from './components/Footer';
+import Header from './components/Header';
 import { registerUser, loginUser } from './services/api-helper';
 
 class App extends Component {
@@ -25,11 +26,26 @@ class App extends Component {
     this.handleLogin = this.handleLogin.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleRegister = this.handleRegister.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
   componentDidMounter() {
     //needs to check for token existance and instatiate user and token if so
     //possibly route directly to festival page if you're already logged in
+  }
+
+  handleLogout(e) {
+  e.preventDefault();
+  this.setState({
+    user: '',
+    token: '',
+    formData: {
+      user_first_name: '',
+      user_last_name: '',
+      user_email: '',
+      password: ''
+    }
+  })
   }
 
   handleChange(e) {
@@ -98,6 +114,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
       <Route exact path='/' render={(props) => (
         <div>
           <LoginForm
@@ -122,7 +139,8 @@ class App extends Component {
           password={this.state.formData.password} />
         </div>
       )} />
-      <Route exact path='/festival' component={FestivalPage} />
+      <Route exact path='/festival' component={FestivalPage}
+        handleLogout={this.handleLogout} />
       <Footer />
       </div>
     );
