@@ -20,9 +20,11 @@ class FestivalPage extends Component {
 
   async componentDidMount(){
     try {
+      console.log(this.props.user);
       const resp = await getFestival()
       if(resp) {
-        this.setState({
+        await this.setState({
+          user: this.props.user,
           festival: resp,
           loading: true,
         });
@@ -50,8 +52,9 @@ class FestivalPage extends Component {
               <h1 className="festival-name">{festival.festival_name}</h1>
               <h3 className="festival-location">{festival.festival_location} • {festival.festival_simpleDate}</h3>
               {!this.state.loading && <div>Please hold...</div>}
-              {this.state.loading && <Counter
-                date={festival.festival_date}
+              {this.state.loading &&
+                <Counter
+                  date={festival.festival_date}
                  />}
             </div>
           </div>
@@ -66,7 +69,9 @@ class FestivalPage extends Component {
         </div>
         <Amenities />
 
-        <ToDoList />
+        {this.state.loading &&
+          <ToDoList
+            user={this.state.user} />}
         </div>
 
       </div>

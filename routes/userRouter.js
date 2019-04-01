@@ -63,7 +63,7 @@ userRouter.post('/', async (req, res) => {
       password_digest
     });
     const loginData = buildAuthResponse(newUser);
-    res.json({ loginData });
+    res.json(loginData);
   } catch(e) {
     console.error(e.message);
     res.status(500).send(e.message);

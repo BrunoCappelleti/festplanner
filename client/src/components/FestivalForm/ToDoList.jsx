@@ -7,7 +7,6 @@ class ToDoList extends Component {
   constructor(){
     super();
     this.state = {
-      user: '',
       allTasks: [],
       renderTasks: [],
       renderTab: 'all',
@@ -23,13 +22,14 @@ class ToDoList extends Component {
   }
 
   async componentDidMount(){
-    //this should set the state will all list item
     try {
-      const allTasks = await getUserTasks(1);
-      this.setState({
-        allTasks,
-        renderTasks: allTasks
-      });
+      const allTasks = await getUserTasks(this.props.user.id);
+      if (allTasks) {
+        this.setState({
+          allTasks,
+          renderTasks: allTasks
+        });
+      }
     } catch (e) {
       console.log(e);
     }
@@ -64,7 +64,7 @@ class ToDoList extends Component {
     const { task_title, task_date, task_notes, task_status } = task
     if (task_title && task_date && task_notes && task_status) {
       try {
-        const createdTask = await createUserTask(1, task);
+        const createdTask = await createUserTask(this.props.user.id, task);
         await this.setState( prevState => ({
           allTasks: [...prevState.allTasks, createdTask]
         }));
@@ -82,7 +82,7 @@ class ToDoList extends Component {
     const { task_title, task_date, task_notes, task_status } = task
     if (task_title && task_date && task_notes && task_status) {
       try {
-        const updatedTask = await editUserTask(1, id, task);
+        const updatedTask = await editUserTask(this.props.user.id, id, task);
         if(updatedTask) {
           const allTasks = this.state.allTasks
           const updatedTasks = allTasks.map( el => {
@@ -110,7 +110,7 @@ class ToDoList extends Component {
 
   async deleteTask(id) {
     try {
-      const resp = await deleteUserTask(1, id);
+      const resp = await deleteUserTask(this.props.id, id);
       console.log(resp);
       if(resp) {
         const allTasks = this.state.allTasks
