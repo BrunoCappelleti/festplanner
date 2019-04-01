@@ -56,41 +56,43 @@ class TaskForm extends Component {
     const { creating, taskForm, } = this.state
     const { createTask, editTask, focusedTask } = this.props
     return (
-      <div>
-        <button onClick={this.props.showForm}>Back</button>
-        <h1>{creating ? 'Add a new Task' : 'Update your Task'}</h1>
-        <form onSubmit={(ev) => {
+      <div className='modal-outside'>
+        <div className='modal-inside'>
+        <h1 className='TakFormTitle'>{creating ? 'Add a new Task' : 'Update your Task'}</h1>
+        <form className='formTodo' onSubmit={(ev) => {
           ev.preventDefault();
           creating ? createTask(taskForm) : editTask(taskForm, focusedTask.id)
         }}>
-          <label>Task Title: </label>
-          <input
+          <label>Name </label>
+          <input className='nameTask'
             type="text"
             value={task_title}
             name="task_title"
             onChange={this.handleChange} />
-          <label>Task status: </label>
-          <select
-            name="task_status"
+          <label>status </label>
+          <select className='selectStatus'
+            name="task_status" className='taskStatus'
             value={task_status}
             onChange={this.handleChange}>
             <option value="To-Do">To-do</option>
             <option value="In Progress">In Progress</option>
             <option value="Done">Done</option>
           </select>
-          <label>Task Notes: </label>
-          <input
+          <label>Notes </label>
+          <input className='noteStatus'
             type="text"
             value={task_notes}
             name="task_notes"
             onChange={this.handleChange} />
-          <Calendar
+          <Calendar className='calander'
             value={task_date}
             onChange={this.handleCalandar} />
-          <input
+          <input className='newTaksBtn'
             type="submit"
-            value={creating ? 'Making a new Task!' : 'Apply your updates!'} />
+            value={creating ? 'Add' : 'Apply your updates!'} />
+            <button className='backTask' onClick={this.props.showForm}>Back</button>
         </form>
+        </div>
       </div>
     )
   }
