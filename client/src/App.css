@@ -1086,3 +1086,330 @@ flex-direction: column;
     padding-right: 5%;
   }
 }
+
+@media only screen and (max-width: 750px){
+
+  .hero-img-div{
+    padding:0;
+    margin-top:-35%;
+
+  }
+
+  .hero-img{
+    /* margin-top: -80%; */
+  }
+
+  .text-hero-festival-page{
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    color: white;
+    margin-left: 15%;
+    margin-top: -100%;
+    font-size: 14px;
+    align-content: center;
+  }
+
+  .Counter{
+    display: flex;
+
+  }
+
+  .counter-days {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .days{
+    font-size: 28px;
+  }
+
+  .counter-hours {
+    font-size: 16px;
+    font-weight: 400;
+
+    /* margin-top: 1%; */
+  }
+
+  .hours{
+    font-size: 28px;
+    font-weight: 300;
+    padding-top: 8%;
+    /* margin-top: 1%; */
+  }
+
+  .counter-min {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .min {
+    font-size: 28px;
+    font-weight: 300;
+    padding-top: 8%;
+  }
+
+  .sec {
+    font-size: 28px;
+    font-weight: 300;
+    padding-top: 8%;
+  }
+
+  .counter-sec {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .festival-name{
+    font-family: Helvetica;
+    font-size: 6em;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+
+  }
+
+  .festival-location{
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 2em;
+    font-weight: 300;
+    margin-left: -30%;
+  }
+  /* OVERVIEW */
+
+  .Overview{
+    margin-top: 20%;
+    padding-left: 7%;
+    padding-top: 2em;
+    margin-top: 10%;
+    height: 400px;
+    margin-left: 10%;
+
+  }
+
+  .overview-title{
+    margin-top: 100%;
+    font-family: Helvetica;
+    font-size: 26px;
+    color: #4a4a4a;
+
+  }
+
+  .festival-description{
+    width: 400px;
+    text-align: justify;
+    font-family: Helvetica;
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    color: #4a4a4a;
+  }
+
+  .festival-paragraph-descr{
+    margin-bottom: 0;
+  }
+
+  .Map{
+    padding-top: 110%;
+    margin-left: -58%;
+    margin-bottom: 0;
+    margin-top: 30%;
+    color: #4a4a4a;
+  }
+
+  .location-map{
+    font-family: Helvetica;
+    font-size: 28px;
+    color: #4a4a4a;
+  }
+
+  .Overview-Map{
+    display: flex;
+    padding-left: 60px;
+    height: 358px;
+  }
+
+  .more-informations{
+    font-family: Helvetica;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 5%;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    color: #4a4a4a;
+  }
+
+  .buy-tickets{
+    text-align: center;
+    display: block;
+    width: 180px;
+    height: 14px;
+    padding: 10px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    border: 2px solid #ff8f07;
+    border-radius: 5px;
+    font-family: Helvetica;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff8f07;
+  }
+
+  /* AMENITIES */
+
+  .Amenities{
+    color: #4a4a4a;
+    margin-top: 165%;
+    padding: 10px;
+    width: 900px;
+    height: 600px;
+    margin-left: -25%;
+  }
+  .amenities-content{
+    padding-left: 17em;
+    margin: 2em;
+    display: flex;
+    height: 8em;
+    width: 35em;
+    flex-wrap: wrap;
+    flex-grow: 1;
+  }
+  .amenities-title{
+    padding-left: 11em;
+    font-family: Helvetica;
+    font-size: 30px;
+    margin-bottom: 0;
+  }
+
+  .icon-amenities{
+    margin: 2em;
+    margin-top: 0;
+    padding: 18px;
+    background-color: #0a9dff;
+    border-radius: 5em;
+    width: 59px;
+    height: 62px;
+  }
+
+  .x{
+    width: 140px;
+    height: 68px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight: 300;
+    color: #4a4a4a;
+  }
+
+  .each-icon-content{
+    margin: 0;
+    padding: 0;
+  }
+
+  /* TO-DO LIST */
+  .to-do-list{
+    display: block;
+    padding: 2em 15em;
+    float: left;
+    width: 680px;
+    height: 450px;
+    font-family: Helvetica;
+    font-size: 22px;
+    font-weight: 300;
+    color: #4a4a4a;
+    margin-top: -10%;
+    margin-left: -38%;
+  }
+
+  .to-do-item{
+    padding: 10px;
+  }
+
+  .to-do-items{
+    box-shadow: 0 2px 6px 0 rgba(128, 128, 128, 0.5);
+    border: solid 1px #979797;
+    background-color: #ffffff;
+    padding-left: 1em;
+  }
+
+  .task-title{
+    width: 100px;
+  }
+
+  .edit-button{
+    border: 2px solid #4a4a4a;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .delete-button{
+    border: 1px solid #979797;
+    padding: 4px 10px;
+    border-radius: 4em;
+    background-color: #979797;
+    color: #d8d8d8;
+    font-size: 22px;
+    margin-right: 0;
+    cursor: pointer;
+  }
+
+  .all{
+    font-family: Helvetica;
+    font-size: 16px;
+  }
+
+  .to-do-tabs-button{
+    width: 83px;
+    height: 55px;
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #e9e9e9;
+    border: 1px solid #e9e9e9;
+    color: #0a9dff;
+  }
+
+  .to-do-tabs-button-focused{
+    background-color: white;
+    font-family: Helvetica;
+    font-size: 16px;
+  }
+
+  .todo-newtaskbtt{
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .make-new-task{
+    font-family: Helvetica;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 2px solid #ff8f07;
+    font-weight: bold;
+    width: 300px;
+    height: 50px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    color: #ff8f07;
+    margin-top: 5%;
+  }
+
+  .footer2 {
+    height: 115px;
+    margin-top: 370%;
+    /* background-color: #dadada; */
+    /* padding-bottom: 30px; */
+    padding-top: 30px;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+
+}
